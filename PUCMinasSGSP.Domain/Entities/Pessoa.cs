@@ -12,12 +12,12 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public TipoPessoa Tipo { get; set; }
 
-        public List<Email> Emails { get; set; }
+        public virtual ICollection<Email> Emails { get; set; }
 
-        public List<Telefone> Telefones { get; set; }
+        public virtual ICollection<Telefone> Telefones { get; set; }
 
-        public List<Endereco> Enderecos { get; set; }
+        public virtual ICollection<Endereco> Enderecos { get; set; }
 
-        public List<Documento> Documentos { get; set; }
+        public virtual ICollection<Documento> Documentos { get; set; }
     }
 }

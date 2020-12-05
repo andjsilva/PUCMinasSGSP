@@ -21,7 +21,7 @@ namespace PUCMinasSGSP.Infra.Data.Context
 
             modelBuilder.ApplyConfiguration(new TelefoneConfiguration());
 
-            modelBuilder.ApplyConfiguration(new EnderecoConfiguation());
+            modelBuilder.ApplyConfiguration(new EnderecoConfiguration());
 
          
 
