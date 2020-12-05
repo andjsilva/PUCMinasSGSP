@@ -16,7 +16,14 @@ namespace PUCMinasSGSP.Infra.Data.Context
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new PessoaConfiguration());
+            
             modelBuilder.ApplyConfiguration(new EmailConfiguration());
+
+            modelBuilder.ApplyConfiguration(new TelefoneConfiguration());
+
+            modelBuilder.ApplyConfiguration(new EnderecoConfiguation());
+
+         
 
 
         }
