@@ -5,10 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Context\" />
     <Folder Include="Repositories\" />
     <Folder Include="EntityConfig\" />
-    <Folder Include="Context\Builders\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PUCMinasSGSP.Domain\PUCMinasSGSP.Domain.csproj" />
