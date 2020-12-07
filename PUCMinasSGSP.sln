@@ -1,9 +1,8 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{2D8010C0-D1B4-464F-8D0F-2D04759EFD22}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{724117F2-5B09-45DF-9313-1CF246C97483}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29924.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{2D8010C0-D1B4-464F-8D0F-2D04759EFD22}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{0AF2D902-906A-4780-A648-3555DC70963A}"
 EndProject
@@ -15,17 +14,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{1C051F78-E63C-49F1-863E-3D7D77C406BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUCMinasSGSP.Domain", "PUCMinasSGSP.Domain\PUCMinasSGSP.Domain.csproj", "{51F090DE-62BC-4C05-B6E2-900813D4AB69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PUCMinasSGSP.Domain", "PUCMinasSGSP.Domain\PUCMinasSGSP.Domain.csproj", "{51F090DE-62BC-4C05-B6E2-900813D4AB69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUCMinasSGSP.Infra.Data", "PUCMinasSGSP.Infra.Data\PUCMinasSGSP.Infra.Data.csproj", "{FE181171-8D05-47C2-996E-20FBA5173001}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PUCMinasSGSP.Infra.Data", "PUCMinasSGSP.Infra.Data\PUCMinasSGSP.Infra.Data.csproj", "{FE181171-8D05-47C2-996E-20FBA5173001}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUCMinasSGSP.Application", "PUCMinasSGSP.Application\PUCMinasSGSP.Application.csproj", "{70446241-13B1-4F53-A010-145F1CAE699D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PUCMinasSGSP.Application", "PUCMinasSGSP.Application\PUCMinasSGSP.Application.csproj", "{70446241-13B1-4F53-A010-145F1CAE699D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Common", "5 - Common", "{6AD6EEFB-B6A2-4266-BCD5-C1322ECC8837}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUCMinasSGSP.Common", "PUCMinasSGSP.Common\PUCMinasSGSP.Common.csproj", "{AB257AE2-93E1-4ACE-B056-59408C06176F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PUCMinasSGSP.Common", "PUCMinasSGSP.Common\PUCMinasSGSP.Common.csproj", "{AB257AE2-93E1-4ACE-B056-59408C06176F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUCMinasSGSP.WebAPI", "PUCMinasSGSP.WebAPI\PUCMinasSGSP.WebAPI.csproj", "{51356BCD-194A-4DEB-BE17-69A0AF28FC9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PUCMinasSGSP.Presentation", "PUCMinasSGSP.WebAPI\PUCMinasSGSP.Presentation.csproj", "{51356BCD-194A-4DEB-BE17-69A0AF28FC9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +53,9 @@ Global
 		{51356BCD-194A-4DEB-BE17-69A0AF28FC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51356BCD-194A-4DEB-BE17-69A0AF28FC9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D1032BFD-C4B3-4A97-8573-292AFE54380D} = {2D72F483-7F52-467F-81EB-5C52EEE77245}
 		{1C051F78-E63C-49F1-863E-3D7D77C406BE} = {2D72F483-7F52-467F-81EB-5C52EEE77245}
@@ -62,5 +64,8 @@ Global
 		{70446241-13B1-4F53-A010-145F1CAE699D} = {0AF2D902-906A-4780-A648-3555DC70963A}
 		{AB257AE2-93E1-4ACE-B056-59408C06176F} = {6AD6EEFB-B6A2-4266-BCD5-C1322ECC8837}
 		{51356BCD-194A-4DEB-BE17-69A0AF28FC9F} = {2D8010C0-D1B4-464F-8D0F-2D04759EFD22}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DAD467A-6DC9-4C9E-8147-D5F875F0F2EE}
 	EndGlobalSection
 EndGlobal
