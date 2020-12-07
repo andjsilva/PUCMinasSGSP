@@ -5,8 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
-    <Folder Include="EntityConfig\" />
+    <Compile Remove="EntityConfig\**" />
+    <Compile Remove="Repositories\**" />
+    <EmbeddedResource Remove="EntityConfig\**" />
+    <EmbeddedResource Remove="Repositories\**" />
+    <None Remove="EntityConfig\**" />
+    <None Remove="Repositories\**" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PUCMinasSGSP.Domain\PUCMinasSGSP.Domain.csproj" />
