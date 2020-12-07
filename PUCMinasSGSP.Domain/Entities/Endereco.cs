@@ -29,11 +29,11 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public Guid? IdPessoa { get; set; }
 
-        public Pessoa Pessoa { get; set; }
+        public virtual Pessoa Pessoa { get; set; }
 
         public Guid? IdUnidadeAtendimento { get; set; }
 
-        public UnidadeAtendimento UnidadeAtendimento { get; set; }
+        public virtual UnidadeAtendimento UnidadeAtendimento { get; set; }
 
   
     }

@@ -5,20 +5,17 @@ using PUCMinasSGSP.Domain.Entities;
 
 namespace PUCMinasSGSP.Infra.Data.Context.Builders
 {
-    public class PessoaConfiguration : IEntityTypeConfiguration<Pessoa>
+    public class EspecialidadeConfiguration : IEntityTypeConfiguration<Especialidade>
     {
-        public void Configure(EntityTypeBuilder<Pessoa> builder)
+        public void Configure(EntityTypeBuilder<Especialidade> builder)
         {
-            builder.ToTable("Pessoa");
+            builder.ToTable("Especialidade");
 
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Nome)
-                .HasMaxLength(255)
+                .HasMaxLength(80)
                 .IsRequired();
-
-            
-
         }
     }
 }

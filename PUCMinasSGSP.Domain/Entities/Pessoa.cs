@@ -4,7 +4,7 @@ using PUCMinasSGSP.Common.Enums;
 
 namespace PUCMinasSGSP.Domain.Entities
 {
-    public class Pessoa
+    public abstract class Pessoa
     {
         public Guid Id { get; set; }
 

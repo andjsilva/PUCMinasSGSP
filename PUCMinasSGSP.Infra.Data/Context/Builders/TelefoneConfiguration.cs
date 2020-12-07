@@ -31,7 +31,10 @@ namespace PUCMinasSGSP.Infra.Data.Context.Builders
 
             builder.HasOne(x => x.Pessoa)
                 .WithMany(x => x.Telefones)
-                .HasForeignKey(x => x.IdPessoa);
+                .HasForeignKey(x => x.IdPessoa)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
 
         }
     }

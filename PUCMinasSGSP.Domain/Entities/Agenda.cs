@@ -23,7 +23,7 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public Guid? IdFuncionario { get; set; }
 
-        public Guid Funcionario { get; set; }
+        public Funcionario Funcionario { get; set; }
 
     }
 }

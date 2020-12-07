@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace PUCMinasSGSP.Domain.Entities
 {
     public class Cargo
@@ -7,8 +9,6 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public string Descricao { get; set; }
 
-        public Guid IdFuncionario { get; set; }
-
-        public Funcionario Funcionario { get; set; }
+        public ICollection<Funcionario> Funcionarios { get; set; }
     }
 }

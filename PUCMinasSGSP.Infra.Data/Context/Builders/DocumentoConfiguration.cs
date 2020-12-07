@@ -21,9 +21,10 @@ namespace PUCMinasSGSP.Infra.Data.Context.Builders
 
             builder.HasOne(x => x.Pessoa)
                 .WithMany(x => x.Documentos)
-                .HasForeignKey(x => x.IdPessoa);
-            
-         
+                .HasForeignKey(x => x.IdPessoa)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
         }
     }
 }
