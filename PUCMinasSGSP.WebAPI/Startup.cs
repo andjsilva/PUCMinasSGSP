@@ -13,23 +13,23 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PUCMinasSGSP.Infra.Data.Context;
 
-namespace PUCMinasSGSP.Presentation
+namespace PUCMinasSGSP.WebAPI
 {
     public class Startup
     {
-
         public IConfiguration Configuration { get; set; }
-
 
         public Startup(IHostEnvironment hostEnvironment)
         {
             var builder = new ConfigurationBuilder()
-                             .SetBasePath(hostEnvironment.ContentRootPath)
-                             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                             .AddJsonFile($"appsettings.{hostEnvironment.EnvironmentName}.json", optional: true)
-                             .AddEnvironmentVariables();
+                           .SetBasePath(hostEnvironment.ContentRootPath)
+                           .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                           .AddJsonFile($"appsettings.{hostEnvironment.EnvironmentName}.json", optional: true)
+                           .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
+
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)

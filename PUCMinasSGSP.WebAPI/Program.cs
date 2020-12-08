@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace PUCMinasSGSP.Presentation
+namespace PUCMinasSGSP.WebAPI
 {
     public class Program
     {
