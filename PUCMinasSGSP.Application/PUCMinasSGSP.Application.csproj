@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\" />
-    <Folder Include="Interfaces\" />
+    <ProjectReference Include="..\PUCMinasSGSP.Domain.Core\PUCMinasSGSP.Domain.Core.csproj" />
   </ItemGroup>
 
 </Project>

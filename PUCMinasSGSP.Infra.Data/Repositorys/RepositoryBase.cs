@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PUCMinasSGSP.Domain.Interfaces.Repositorys;
+﻿using PUCMinasSGSP.Domain.Core.Interfaces.Repositorys;
 using PUCMinasSGSP.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
