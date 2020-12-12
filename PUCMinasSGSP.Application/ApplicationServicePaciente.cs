@@ -22,34 +22,34 @@ namespace PUCMinasSGSP.Application
 
         public void Add(PacienteDto pacienteDto)
         {
-            var paciente = mapperPaciente.MapperDtoToEntity(pacienteDto);
-            servicePaciente.Add(paciente);
+            var paciente = this.mapperPaciente.MapperDtoToEntity(pacienteDto);
+            this.servicePaciente.Add(paciente);
         }
 
         public IEnumerable<PacienteDto> GetAll()
         {
-            var pacientes = servicePaciente.GetAll();
+            var pacientes = this.servicePaciente.GetAll();
 
-            return mapperPaciente.MapperListPacientesDto(pacientes);
+            return this.mapperPaciente.MapperListPacientesDto(pacientes);
 
         }
 
         public PacienteDto GetById(Guid id)
         {
-            var paciente = servicePaciente.GetById(id);
-            return mapperPaciente.MapperEntityToDto(paciente);
+            var paciente = this.servicePaciente.GetById(id);
+            return this.mapperPaciente.MapperEntityToDto(paciente);
         }
 
         public void Remove(PacienteDto pacienteDto)
         {
-            var paciente = mapperPaciente.MapperDtoToEntity(pacienteDto);
-            servicePaciente.Remove(paciente);
+            var paciente = this.mapperPaciente.MapperDtoToEntity(pacienteDto);
+            this.servicePaciente.Remove(paciente);
         }
 
         public void Update(PacienteDto pacienteDto)
         {
-            var paciente = mapperPaciente.MapperDtoToEntity(pacienteDto);
-            servicePaciente.Update(paciente);
+            var paciente = this.mapperPaciente.MapperDtoToEntity(pacienteDto);
+            this.servicePaciente.Update(paciente);
         }
     }
 }

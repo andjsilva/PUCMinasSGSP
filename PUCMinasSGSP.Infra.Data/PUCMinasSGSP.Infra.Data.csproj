@@ -22,5 +22,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PUCMinasSGSP.Domain.Core\PUCMinasSGSP.Domain.Core.csproj" />
+    <ProjectReference Include="..\PUCMinasSGSP.Domain\PUCMinasSGSP.Domain.csproj" />
   </ItemGroup>
 </Project>

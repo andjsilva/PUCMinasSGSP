@@ -9,6 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PUCMinasSGSP.Application\PUCMinasSGSP.Application.csproj" />
+    <ProjectReference Include="..\PUCMinasSGSP.Domain.Services\PUCMinasSGSP.Domain.Services.csproj" />
     <ProjectReference Include="..\PUCMinasSGSP.Infra.Data\PUCMinasSGSP.Infra.Data.csproj" />
   </ItemGroup>
 
