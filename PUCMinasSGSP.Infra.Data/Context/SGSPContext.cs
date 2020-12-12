@@ -5,9 +5,9 @@ using PUCMinasSGSP.Infra.Data.Context.Builders;
 
 namespace PUCMinasSGSP.Infra.Data.Context
 {
-    public class SGSPDbContext : DbContext
+    public class SGSPContext : DbContext
     {
-        public SGSPDbContext(DbContextOptions<SGSPDbContext> options) : base(options) { }
+        public SGSPContext(DbContextOptions<SGSPContext> options) : base(options) { }
 
         public DbSet<Agenda> Agenda { get; set; }
 

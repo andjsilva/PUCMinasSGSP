@@ -7,9 +7,9 @@ namespace PUCMinasSGSP.Application.Interfaces
 {
     public interface IApplicationServiceEndereco
     {
-        void Add(EnderecoDto enderecoDto);
+        EnderecoDto Add(EnderecoDto enderecoDto);
 
-        void Update(EnderecoDto enderecoDto);
+        EnderecoDto Update(EnderecoDto enderecoDto);
 
         void Remove(EnderecoDto enderecoDto);
 

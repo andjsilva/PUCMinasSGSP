@@ -15,9 +15,9 @@ namespace PUCMinasSGSP.Domain.Services
         {
             this.repository = repository;
         }
-        public void Add(TEntity obj)
+        public TEntity Add(TEntity obj)
         {
-            this.repository.Add(obj);
+            return this.repository.Add(obj);
         }
 
         public IEnumerable<TEntity> GetAll()
@@ -35,9 +35,9 @@ namespace PUCMinasSGSP.Domain.Services
             this.repository.Remove(obj);
         }
 
-        public void Update(TEntity obj)
+        public TEntity Update(TEntity obj)
         {
-            this.repository.Update(obj);
+            return this.repository.Update(obj);
         }
     }
 }

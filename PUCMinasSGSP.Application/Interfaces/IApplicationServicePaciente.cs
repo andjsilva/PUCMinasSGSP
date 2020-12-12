@@ -7,11 +7,11 @@ namespace PUCMinasSGSP.Application.Interfaces
 {
     public interface IApplicationServicePaciente
     {
-        void Add(PacienteDto pacienteDto);
+        PacienteDto Add(PacienteDto pacienteDto);
 
-        void Update(PacienteDto pacienteDto);
+        PacienteDto Update(Guid id, PacienteDto pacienteDto);
 
-        void Remove(PacienteDto pacienteDto);
+        void Remove(Guid id, PacienteDto pacienteDto);
 
         IEnumerable<PacienteDto> GetAll();
 

@@ -9,7 +9,7 @@ using PUCMinasSGSP.Infra.Data.Context;
 
 namespace PUCMinasSGSP.Infra.Data.Migrations
 {
-    [DbContext(typeof(SGSPDbContext))]
+    [DbContext(typeof(SGSPContext))]
     [Migration("20201201011345_Inicial")]
     partial class Inicial
     {

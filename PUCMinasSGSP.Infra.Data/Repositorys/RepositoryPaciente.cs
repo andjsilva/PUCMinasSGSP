@@ -9,9 +9,9 @@ namespace PUCMinasSGSP.Infra.Data.Repositorys
 {
     public class RepositoryPaciente : RepositoryBase<Paciente>, IRepositoryPaciente
     {
-        private readonly SGSPDbContext dbContext;
+        private readonly SGSPContext dbContext;
 
-        public RepositoryPaciente(SGSPDbContext dbContext)
+        public RepositoryPaciente(SGSPContext dbContext)
             :base(dbContext)
         {
             this.dbContext = dbContext;

@@ -20,10 +20,11 @@ namespace PUCMinasSGSP.Application
             this.mapperPaciente = mapperPaciente;
         }
 
-        public void Add(PacienteDto pacienteDto)
+        public PacienteDto Add(PacienteDto pacienteDto)
         {
             var paciente = this.mapperPaciente.MapperDtoToEntity(pacienteDto);
-            this.servicePaciente.Add(paciente);
+            var result = this.servicePaciente.Add(paciente);
+            return this.mapperPaciente.MapperEntityToDto(result);
         }
 
         public IEnumerable<PacienteDto> GetAll()
@@ -40,16 +41,35 @@ namespace PUCMinasSGSP.Application
             return this.mapperPaciente.MapperEntityToDto(paciente);
         }
 
-        public void Remove(PacienteDto pacienteDto)
+        public void Remove(Guid id, PacienteDto pacienteDto)
         {
-            var paciente = this.mapperPaciente.MapperDtoToEntity(pacienteDto);
-            this.servicePaciente.Remove(paciente);
+            var entitySave = this.GetById(id);
+
+            if (entitySave != null)
+            {
+                var paciente = this.mapperPaciente.MapperDtoToEntity(pacienteDto);
+                this.servicePaciente.Remove(paciente);
+            }
+              
+
         }
 
-        public void Update(PacienteDto pacienteDto)
+        public PacienteDto Update(Guid id, PacienteDto pacienteDto)
         {
-            var paciente = this.mapperPaciente.MapperDtoToEntity(pacienteDto);
-            this.servicePaciente.Update(paciente);
+            var entitySave = this.GetById(id);
+
+            if ( entitySave != null)
+            {
+                pacienteDto.Id = entitySave.Id;
+                var paciente = this.mapperPaciente.MapperDtoToEntity(pacienteDto);
+                var result = this.servicePaciente.Update(paciente);
+                return this.mapperPaciente.MapperEntityToDto(result);
+            }
+            else
+            {
+                return new PacienteDto();
+            }         
+
         }
     }
 }

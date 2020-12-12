@@ -8,7 +8,7 @@ using PUCMinasSGSP.Infra.Data.Context;
 
 namespace PUCMinasSGSP.Infra.Data.Migrations
 {
-    [DbContext(typeof(SGSPDbContext))]
+    [DbContext(typeof(SGSPContext))]
     partial class SGSPDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

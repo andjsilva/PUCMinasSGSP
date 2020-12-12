@@ -9,7 +9,7 @@ using PUCMinasSGSP.Infra.Data.Context;
 
 namespace PUCMinasSGSP.Infra.Data.Migrations
 {
-    [DbContext(typeof(SGSPDbContext))]
+    [DbContext(typeof(SGSPContext))]
     [Migration("20201207003810_Fase1_Desenho_Entidades")]
     partial class Fase1_Desenho_Entidades
     {

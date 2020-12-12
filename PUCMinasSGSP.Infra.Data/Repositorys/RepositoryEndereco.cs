@@ -9,9 +9,9 @@ namespace PUCMinasSGSP.Infra.Data.Repositorys
 {
     public class RepositoryEndereco : RepositoryBase<Endereco>, IRepositoryEndereco
     {
-        private readonly SGSPDbContext dbContext;
+        private readonly SGSPContext dbContext;
 
-        public RepositoryEndereco(SGSPDbContext dbContext)
+        public RepositoryEndereco(SGSPContext dbContext)
             :base(dbContext)
         {
             this.dbContext = dbContext;

@@ -39,15 +39,11 @@ namespace PUCMinasSGSP.WebAPI.Controllers
 
         // POST api/<PacienteController>
         [HttpPost]
-        public ActionResult Post([FromBody] PacienteDto pacienteDto)
+        public ActionResult<PacienteDto> Post([FromBody] PacienteDto pacienteDto)
         {
             try
             {
-                if (pacienteDto == null)
-                    return NotFound();
-
-                this.applicationServicePaciente.Add(pacienteDto);
-                return Ok("Paciente cadastrado com sucesso!");
+                return this.applicationServicePaciente.Add(pacienteDto);
             }
             catch (Exception ex)
             {
@@ -59,16 +55,11 @@ namespace PUCMinasSGSP.WebAPI.Controllers
 
         // PUT api/<PacienteController>/5
         [HttpPut("{id}")]
-        public ActionResult Put(Guid id, [FromBody] PacienteDto pacienteDto)
+        public ActionResult<PacienteDto> Put(Guid id, [FromBody] PacienteDto pacienteDto)
         {
             try
             {
-                if (this.applicationServicePaciente.GetById(id) == null)
-                    return NotFound("Paciente não cadastrado!");
-
-                this.applicationServicePaciente.Update(pacienteDto);
-                return Ok("Cadastro do paciente atualizado com sucesso!");
-
+                return this.applicationServicePaciente.Update(id, pacienteDto);
             }
             catch (Exception ex)
             {
@@ -84,12 +75,8 @@ namespace PUCMinasSGSP.WebAPI.Controllers
         {
             try
             {
-                if (this.applicationServicePaciente.GetById(id) == null)
-                    return NotFound("Paciente não cadastrado!");
-
-                this.applicationServicePaciente.Update(pacienteDto);
-                return Ok("Cadastro do paciente excluido com sucesso!");
-
+                this.applicationServicePaciente.Remove(id, pacienteDto);
+                return Ok("Registro excluído com sucesso...");
             }
             catch (Exception ex)
             {

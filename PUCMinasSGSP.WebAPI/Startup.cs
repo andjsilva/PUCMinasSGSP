@@ -37,11 +37,11 @@ namespace PUCMinasSGSP.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<SGSPDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:SGSPSQLServer"]));
+            services.AddDbContext<SGSPContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:SGSPSQLServer"]));
             services.RegisterDependencyInjectionSGSP();
             services.AddSwaggerGen( c => 
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API - Sistema de Gestão de Saúde Pública (SGSP)", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API - Sistema de Gest?o de Sa?de P?blica (SGSP)", Version = "v1" });
             });
             
 
@@ -69,7 +69,7 @@ namespace PUCMinasSGSP.WebAPI
             app.UseSwagger();
             app.UseSwaggerUI( c => 
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API - Sistema de Gestão de Saúde Pública (SGSP)");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API - Sistema de Gest?o de Sa?de P?blica (SGSP)");
             });
         }
     }

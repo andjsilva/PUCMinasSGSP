@@ -20,10 +20,11 @@ namespace PUCMinasSGSP.Application
             this.mapperEndereco = mapperEndereco;
         }
 
-        public void Add(EnderecoDto enderecoDto)
+        public EnderecoDto Add(EnderecoDto enderecoDto)
         {
             var endereco = this.mapperEndereco.MapperDtoToEntity(enderecoDto);
-            this.serviceEndereco.Add(endereco);
+            var result = this.serviceEndereco.Add(endereco);
+            return this.mapperEndereco.MapperEntityToDto(result);
         }
 
         public IEnumerable<EnderecoDto> GetAll()
@@ -44,10 +45,11 @@ namespace PUCMinasSGSP.Application
             this.serviceEndereco.Remove(endereco);
         }
 
-        public void Update(EnderecoDto enderecoDto)
+        public EnderecoDto Update(EnderecoDto enderecoDto)
         {
             var endereco = this.mapperEndereco.MapperDtoToEntity(enderecoDto);
-            this.serviceEndereco.Update(endereco);
+            var result = this.serviceEndereco.Update(endereco);
+            return this.mapperEndereco.MapperEntityToDto(result);
         }
     }
 }

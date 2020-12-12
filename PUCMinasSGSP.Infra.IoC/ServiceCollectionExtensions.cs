@@ -23,7 +23,6 @@ namespace PUCMinasSGSP.Infra.IoC
 
         private static void RegisterDependencyInjection(IServiceCollection services)
         {
-            //services.AddTransient<SGSPDbContext>();
             
             //IoC Application
             services.AddTransient<IApplicationServicePaciente,ApplicationServicePaciente>();
