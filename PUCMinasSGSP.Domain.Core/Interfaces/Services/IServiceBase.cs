@@ -8,7 +8,7 @@ namespace PUCMinasSGSP.Domain.Core.Interfaces.Services
     {
         TEntity Add(TEntity obj);
 
-        TEntity Update(TEntity obj);
+        void Update(TEntity obj);
 
         void Remove(TEntity obj);
 

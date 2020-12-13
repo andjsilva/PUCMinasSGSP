@@ -7,11 +7,11 @@ namespace PUCMinasSGSP.Application.Interfaces
 {
     public interface IApplicationServiceEndereco
     {
-        EnderecoDto Add(EnderecoDto enderecoDto);
+        EnderecoDto Add(EnderecoDto EnderecoDto);
 
-        EnderecoDto Update(EnderecoDto enderecoDto);
+        EnderecoDto Update(Guid id, EnderecoDto EnderecoDto);
 
-        void Remove(EnderecoDto enderecoDto);
+        bool Remove(Guid id);
 
         IEnumerable<EnderecoDto> GetAll();
 

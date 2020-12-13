@@ -32,12 +32,12 @@ namespace PUCMinasSGSP.Domain.Services
 
         public void Remove(TEntity obj)
         {
-            this.repository.Remove(obj);
+            this.repository.Remove(obj); 
         }
 
-        public TEntity Update(TEntity obj)
+        public void Update(TEntity obj)
         {
-            return this.repository.Update(obj);
+            this.repository.Update(obj);
         }
     }
 }

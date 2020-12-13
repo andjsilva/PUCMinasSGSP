@@ -11,10 +11,11 @@ namespace PUCMinasSGSP.Application.Interfaces
 
         PacienteDto Update(Guid id, PacienteDto pacienteDto);
 
-        void Remove(Guid id, PacienteDto pacienteDto);
+        bool Remove(Guid id);
 
         IEnumerable<PacienteDto> GetAll();
 
         PacienteDto GetById(Guid id);
+
     }
 }

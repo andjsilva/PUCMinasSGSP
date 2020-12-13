@@ -12,38 +12,38 @@ namespace PUCMinasSGSP.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PacienteController : ControllerBase
+    public class EnderecoController : ControllerBase
     {
-        private readonly IApplicationServicePaciente applicationServicePaciente;
+        private readonly IApplicationServiceEndereco applicationServiceEndereco;
 
-        public PacienteController(IApplicationServicePaciente applicationServicePaciente)
+        public EnderecoController(IApplicationServiceEndereco applicationServiceEndereco)
         {
-            this.applicationServicePaciente = applicationServicePaciente;
+            this.applicationServiceEndereco = applicationServiceEndereco;
         }
         
 
-        // GET: api/<PacienteController>
+        // GET: api/<EnderecoController>
         [HttpGet]
-        public ActionResult<IEnumerable<PacienteDto>>Get()
+        public ActionResult<IEnumerable<EnderecoDto>>Get()
         {
-            return Ok(this.applicationServicePaciente.GetAll());
+            return Ok(this.applicationServiceEndereco.GetAll());
         }
 
      
-        // GET api/<PacienteController>/
+        // GET api/<EnderecoController>/
         [HttpGet("{id}")]
-        public ActionResult<PacienteDto> Get(Guid id)
+        public ActionResult<EnderecoDto> Get(Guid id)
         {
-            return Ok(this.applicationServicePaciente.GetById(id));
+            return Ok(this.applicationServiceEndereco.GetById(id));
         }
 
-        // POST api/<PacienteController>
+        // POST api/<EnderecoController>
         [HttpPost]
-        public ActionResult<PacienteDto> Post([FromBody] PacienteDto pacienteDto)
+        public ActionResult<EnderecoDto> Post([FromBody] EnderecoDto EnderecoDto)
         {
             try
             {
-                return this.applicationServicePaciente.Add(pacienteDto);
+                return this.applicationServiceEndereco.Add(EnderecoDto);
             }
             catch (Exception ex)
             {
@@ -53,13 +53,13 @@ namespace PUCMinasSGSP.WebAPI.Controllers
            
         }
 
-        // PUT api/<PacienteController>/id
+        // PUT api/<EnderecoController>/id
         [HttpPut("{id}")]
-        public ActionResult<PacienteDto> Put(Guid id, [FromBody] PacienteDto pacienteDto)
+        public ActionResult<EnderecoDto> Put(Guid id, [FromBody] EnderecoDto EnderecoDto)
         {
             try
             {
-                return this.applicationServicePaciente.Update(id, pacienteDto);
+                return this.applicationServiceEndereco.Update(id, EnderecoDto);
             }
             catch (Exception ex)
             {
@@ -69,19 +69,20 @@ namespace PUCMinasSGSP.WebAPI.Controllers
            
         }
 
-        // DELETE api/<PacienteController>/id
+         // DELETE api/<PacienteController>/id
         [HttpDelete("{id}")]
         public ActionResult Delete(Guid id)
         {
             try
             {
-                if (this.applicationServicePaciente.Remove(id))
+                if (this.applicationServiceEndereco.Remove(id))
                     return Ok("Registro excluído com sucesso...");
 
-                return NotFound("Registro não encontrado...");
+                return NotFound("Registro não encontrado....");
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
            

@@ -10,7 +10,7 @@ namespace PUCMinasSGSP.Application.Interfaces.Mappers
     {
         Endereco MapperDtoToEntity(EnderecoDto enderecoDto);
 
-        IEnumerable<EnderecoDto> MapperListEnderecoDto(IEnumerable<Endereco> enderecos);
+        IEnumerable<EnderecoDto> MapperListEnderecosDto(IEnumerable<Endereco> enderecos);
 
         EnderecoDto MapperEntityToDto(Endereco endereco);
 

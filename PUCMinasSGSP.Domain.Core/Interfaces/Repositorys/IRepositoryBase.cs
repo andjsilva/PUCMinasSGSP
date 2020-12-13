@@ -8,7 +8,7 @@ namespace PUCMinasSGSP.Domain.Core.Interfaces.Repositorys
     {
         TEntity Add(TEntity obj);
 
-        TEntity Update(TEntity obj);
+        void Update(TEntity obj);
 
         void Remove(TEntity obj);
 
@@ -17,3 +17,4 @@ namespace PUCMinasSGSP.Domain.Core.Interfaces.Repositorys
         TEntity GetById(Guid id);
     }
 }
+  

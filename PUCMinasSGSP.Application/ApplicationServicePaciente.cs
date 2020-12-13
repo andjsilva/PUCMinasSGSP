@@ -41,29 +41,31 @@ namespace PUCMinasSGSP.Application
             return this.mapperPaciente.MapperEntityToDto(paciente);
         }
 
-        public void Remove(Guid id, PacienteDto pacienteDto)
+        public bool Remove(Guid id)
         {
-            var entitySave = this.GetById(id);
+            var paciente = this.servicePaciente.GetById(id);
 
-            if (entitySave != null)
-            {
-                var paciente = this.mapperPaciente.MapperDtoToEntity(pacienteDto);
-                this.servicePaciente.Remove(paciente);
-            }
-              
+            if (paciente == null)
+                return false;
 
+            this.servicePaciente.Remove(paciente);
+            return true;
+         
         }
 
         public PacienteDto Update(Guid id, PacienteDto pacienteDto)
         {
-            var entitySave = this.GetById(id);
+            var result = this.servicePaciente.GetById(id);
 
-            if ( entitySave != null)
+            if (result != null)
             {
-                pacienteDto.Id = entitySave.Id;
+                pacienteDto.Id = result.Id;
+
                 var paciente = this.mapperPaciente.MapperDtoToEntity(pacienteDto);
-                var result = this.servicePaciente.Update(paciente);
-                return this.mapperPaciente.MapperEntityToDto(result);
+
+                this.servicePaciente.Update(paciente);
+
+                return this.GetById(paciente.Id);
             }
             else
             {

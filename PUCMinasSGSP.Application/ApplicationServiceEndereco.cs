@@ -30,7 +30,9 @@ namespace PUCMinasSGSP.Application
         public IEnumerable<EnderecoDto> GetAll()
         {
             var enderecos = this.serviceEndereco.GetAll();
-            return this.mapperEndereco.MapperListEnderecoDto(enderecos);
+
+            return this.mapperEndereco.MapperListEnderecosDto(enderecos);
+
         }
 
         public EnderecoDto GetById(Guid id)
@@ -39,17 +41,37 @@ namespace PUCMinasSGSP.Application
             return this.mapperEndereco.MapperEntityToDto(endereco);
         }
 
-        public void Remove(EnderecoDto enderecoDto)
+        public bool Remove(Guid id)
         {
-            var endereco = this.mapperEndereco.MapperDtoToEntity(enderecoDto);
+            var endereco = this.serviceEndereco.GetById(id);
+
+            if (endereco == null)
+                return false;
+
             this.serviceEndereco.Remove(endereco);
+            return true;
+
         }
 
-        public EnderecoDto Update(EnderecoDto enderecoDto)
+        public EnderecoDto Update(Guid id, EnderecoDto enderecoDto)
         {
-            var endereco = this.mapperEndereco.MapperDtoToEntity(enderecoDto);
-            var result = this.serviceEndereco.Update(endereco);
-            return this.mapperEndereco.MapperEntityToDto(result);
+            var result = this.GetById(id);
+
+            if (result != null)
+            {
+                enderecoDto.Id = result.Id;
+
+                var endereco = this.mapperEndereco.MapperDtoToEntity(enderecoDto);
+
+                this.serviceEndereco.Update(endereco);
+
+                return this.GetById(endereco.Id);
+            }
+            else
+            {
+                return new EnderecoDto();
+            }         
+
         }
     }
 }

@@ -48,7 +48,7 @@ namespace PUCMinasSGSP.Application.Mappers
             return EnderecoDto;
         }
 
-        public IEnumerable<EnderecoDto> MapperListEnderecoDto(IEnumerable<Endereco> endereco)
+        public IEnumerable<EnderecoDto> MapperListEnderecosDto(IEnumerable<Endereco> endereco)
         {
             var dto = endereco.Select(c => new EnderecoDto
             {

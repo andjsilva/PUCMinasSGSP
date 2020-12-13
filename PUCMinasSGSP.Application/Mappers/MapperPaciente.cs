@@ -13,12 +13,41 @@ namespace PUCMinasSGSP.Application.Mappers
 
         public Paciente MapperDtoToEntity(PacienteDto pacienteDto)
         {
-            var paciente = new Paciente()
+            var paciente = new Paciente();
+            var enderecos = new List<Endereco>();
+            
+
+            paciente.Id = pacienteDto.Id;
+            paciente.Nome = pacienteDto.Nome;
+            paciente.Status = pacienteDto.Status;
+
+            if (pacienteDto.Enderecos != null)
             {
-                Id = pacienteDto.Id,
-                Nome = pacienteDto.Nome,
-                Status = pacienteDto.Status
-            };
+                foreach (var item in pacienteDto.Enderecos)
+                {
+
+                    var endereco = new Endereco()
+                    {
+                        Id = item.Id,
+                        TipoLogradouro = item.TipoLogradouro,
+                        Logradouro = item.Logradouro,
+                        Numero = item.Numero,
+                        Complemento = item.Complemento,
+                        Cep = item.Cep,
+                        Bairro = item.Bairro,
+                        Municipio = item.Municipio,
+                        Estado = item.Estado,
+                        Latitude = item.Latitude,
+                        Longetude = item.Longetude
+                    };
+
+                    enderecos.Add(endereco);
+                }
+
+                paciente.Enderecos = enderecos;
+
+            }
+
 
             return paciente;
 
@@ -26,12 +55,41 @@ namespace PUCMinasSGSP.Application.Mappers
 
         public PacienteDto MapperEntityToDto(Paciente paciente)
         {
-            var pacienteDto = new PacienteDto()
+            var pacienteDto = new PacienteDto();
+            var enderecosDto = new List<EnderecoDto>();
+
+
+            pacienteDto.Id = paciente.Id;
+            pacienteDto.Nome = paciente.Nome;
+            pacienteDto.Status = paciente.Status;
+
+            if (paciente.Enderecos != null)
             {
-                Id = paciente.Id,
-                Nome = paciente.Nome,
-                Status = paciente.Status
-            };
+                foreach (var item in paciente.Enderecos)
+                {
+
+                    var enderecoDto = new EnderecoDto()
+                    {
+                        Id = item.Id,
+                        TipoLogradouro = item.TipoLogradouro,
+                        Logradouro = item.Logradouro,
+                        Numero = item.Numero,
+                        Complemento = item.Complemento,
+                        Cep = item.Cep,
+                        Bairro = item.Bairro,
+                        Municipio = item.Municipio,
+                        Estado = item.Estado,
+                        Latitude = item.Latitude,
+                        Longetude = item.Longetude
+                    };
+
+                    enderecosDto.Add(enderecoDto);
+                }
+
+                pacienteDto.Enderecos = enderecosDto;
+
+            }
+
 
             return pacienteDto;
         }

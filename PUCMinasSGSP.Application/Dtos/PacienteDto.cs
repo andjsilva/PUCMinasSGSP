@@ -13,5 +13,8 @@ namespace PUCMinasSGSP.Application.Dtos
 
         public Status Status { get; set; }
 
+        public virtual ICollection<EnderecoDto> Enderecos { get; set; }
+
+
     }
 }
