@@ -1,7 +1,7 @@
 ﻿using System;
 namespace PUCMinasSGSP.Common.Enums
 {
-    public enum DiaSemana
+    public enum DiaSemanaEnum
     {
         Domingo,
         SegundaFeira,

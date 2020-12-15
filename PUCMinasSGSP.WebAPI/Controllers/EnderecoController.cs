@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PUCMinasSGSP.Application.Dtos;
 using PUCMinasSGSP.Application.Interfaces;
+using PUCMinasSGSP.Common.Enums;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -38,12 +39,12 @@ namespace PUCMinasSGSP.WebAPI.Controllers
         }
 
         // POST api/<EnderecoController>
-        [HttpPost]
-        public async Task<ActionResult<EnderecoDto>> Post([FromBody] EnderecoDto EnderecoDto)
+        [HttpPost("/paciente/{id}")]
+        public async Task<ActionResult<EnderecoDto>> Post(EntidadeEnum entidade, Guid idEntidade, [FromBody] EnderecoDto EnderecoDto)
         {
             try
             {
-                return await this.applicationServiceEndereco.AddAsync(EnderecoDto);
+                return await this.applicationServiceEndereco.AddAsync(idEntidade, EnderecoDto);
             }
             catch (Exception ex)
             {

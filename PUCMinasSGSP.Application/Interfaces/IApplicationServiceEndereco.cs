@@ -8,7 +8,7 @@ namespace PUCMinasSGSP.Application.Interfaces
 {
     public interface IApplicationServiceEndereco
     {
-        Task<EnderecoDto> AddAsync(EnderecoDto EnderecoDto);
+        Task<EnderecoDto> AddAsync(Guid idEntidade, EnderecoDto EnderecoDto);
 
         Task<EnderecoDto> UpdateAsync(Guid id, EnderecoDto EnderecoDto);
 

@@ -16,7 +16,7 @@ namespace PUCMinasSGSP.Application.Mappers
             unidadeAtendimento.Nome = unidadeAtendimentoDto.Nome;
             unidadeAtendimento.Tipo = unidadeAtendimentoDto.Tipo;
 
-            if (unidadeAtendimento.Endereco != null)
+            if (unidadeAtendimentoDto.Endereco != null)
             {
                 var endereco = new Endereco()
                 {
@@ -36,7 +36,7 @@ namespace PUCMinasSGSP.Application.Mappers
                 unidadeAtendimento.Endereco = endereco;
             }
 
-            if (unidadeAtendimento.Telefones != null)
+            if (unidadeAtendimentoDto.Telefones != null)
             {
                 foreach (var item in unidadeAtendimentoDto.Telefones)
                 {

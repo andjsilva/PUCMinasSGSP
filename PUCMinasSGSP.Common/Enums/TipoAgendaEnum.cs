@@ -1,7 +1,7 @@
 ﻿using System;
 namespace PUCMinasSGSP.Common.Enums
 {
-    public enum TipoAgenda
+    public enum TipoAgendaEnum
     {
         Consulta = 1,
         Exame = 2

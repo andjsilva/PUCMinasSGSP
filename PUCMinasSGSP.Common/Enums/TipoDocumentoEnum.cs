@@ -1,7 +1,7 @@
 ﻿using System;
 namespace PUCMinasSGSP.Common.Enums
 {
-    public enum TipoDocumento
+    public enum TipoDocumentoEnum
     {
         CPF = 1,
         CNPJ = 2,

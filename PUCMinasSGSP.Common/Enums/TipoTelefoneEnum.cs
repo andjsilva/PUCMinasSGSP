@@ -1,7 +1,7 @@
 ﻿using System;
 namespace PUCMinasSGSP.Common.Enums
 {
-    public enum TipoTelefone
+    public enum TipoTelefoneEnum
     {
         Comercial = 1,
         Residencial = 2,

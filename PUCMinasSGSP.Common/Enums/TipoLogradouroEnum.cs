@@ -1,7 +1,7 @@
 ﻿using System;
 namespace PUCMinasSGSP.Common.Enums
 {
-    public enum TipoLogradouro
+    public enum TipoLogradouroEnum
     {
         Rua = 1,
         Avenida = 2,
