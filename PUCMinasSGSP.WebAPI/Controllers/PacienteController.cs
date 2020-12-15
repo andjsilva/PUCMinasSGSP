@@ -24,26 +24,26 @@ namespace PUCMinasSGSP.WebAPI.Controllers
 
         // GET: api/<PacienteController>
         [HttpGet]
-        public ActionResult<IEnumerable<PacienteDto>>Get()
+        public async Task<ActionResult<IEnumerable<PacienteDto>>> GetAll()
         {
-            return Ok(this.applicationServicePaciente.GetAll());
+            return Ok(await this.applicationServicePaciente.GetAllAsync());
         }
 
      
         // GET api/<PacienteController>/
         [HttpGet("{id}")]
-        public ActionResult<PacienteDto> Get(Guid id)
+        public async Task<ActionResult<PacienteDto>> Get(Guid id)
         {
-            return Ok(this.applicationServicePaciente.GetById(id));
+            return Ok(await this.applicationServicePaciente.GetByIdAsync(id));
         }
 
         // POST api/<PacienteController>
         [HttpPost]
-        public ActionResult<PacienteDto> Post([FromBody] PacienteDto pacienteDto)
+        public async Task<ActionResult<PacienteDto>> Post([FromBody] PacienteDto pacienteDto)
         {
             try
             {
-                return this.applicationServicePaciente.Add(pacienteDto);
+                return await this.applicationServicePaciente.AddAsync(pacienteDto);
             }
             catch (Exception ex)
             {
@@ -55,11 +55,11 @@ namespace PUCMinasSGSP.WebAPI.Controllers
 
         // PUT api/<PacienteController>/id
         [HttpPut("{id}")]
-        public ActionResult<PacienteDto> Put(Guid id, [FromBody] PacienteDto pacienteDto)
+        public async Task<ActionResult<PacienteDto>> Put(Guid id, [FromBody] PacienteDto pacienteDto)
         {
             try
             {
-                return this.applicationServicePaciente.Update(id, pacienteDto);
+                return await this.applicationServicePaciente.UpdateAsync(id, pacienteDto);
             }
             catch (Exception ex)
             {
@@ -71,11 +71,11 @@ namespace PUCMinasSGSP.WebAPI.Controllers
 
         // DELETE api/<PacienteController>/id
         [HttpDelete("{id}")]
-        public ActionResult Delete(Guid id)
+        public async Task<ActionResult> Delete(Guid id)
         {
             try
             {
-                if (this.applicationServicePaciente.Remove(id))
+                if (await this.applicationServicePaciente.RemoveAsync(id))
                     return Ok("Registro excluído com sucesso...");
 
                 return NotFound("Registro não encontrado...");

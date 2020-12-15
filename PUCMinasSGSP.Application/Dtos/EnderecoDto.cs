@@ -9,7 +9,7 @@ namespace PUCMinasSGSP.Application.Dtos
     {
         public Guid Id { get; set; }
 
-        public TipoLogradouro TipoLogradouro { get; set; }
+        public TipoLogradouro Tipo { get; set; }
 
         public string Logradouro { get; set; }
 

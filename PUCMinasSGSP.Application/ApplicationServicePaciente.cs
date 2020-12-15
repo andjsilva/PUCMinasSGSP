@@ -5,6 +5,7 @@ using PUCMinasSGSP.Domain.Core.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PUCMinasSGSP.Application
 {
@@ -20,42 +21,42 @@ namespace PUCMinasSGSP.Application
             this.mapperPaciente = mapperPaciente;
         }
 
-        public PacienteDto Add(PacienteDto pacienteDto)
+        public async Task<PacienteDto> AddAsync(PacienteDto pacienteDto)
         {
             var paciente = this.mapperPaciente.MapperDtoToEntity(pacienteDto);
-            var result = this.servicePaciente.Add(paciente);
+            var result = await this.servicePaciente.AddAsync(paciente);
             return this.mapperPaciente.MapperEntityToDto(result);
         }
 
-        public IEnumerable<PacienteDto> GetAll()
+        public async Task<IEnumerable<PacienteDto>> GetAllAsync()
         {
-            var pacientes = this.servicePaciente.GetAll();
+            var pacientes = await this.servicePaciente.GetAllAsync();
 
             return this.mapperPaciente.MapperListPacientesDto(pacientes);
 
         }
 
-        public PacienteDto GetById(Guid id)
+        public async Task<PacienteDto> GetByIdAsync(Guid id)
         {
-            var paciente = this.servicePaciente.GetById(id);
+            var paciente = await this.servicePaciente.GetByIdAsync(id);
             return this.mapperPaciente.MapperEntityToDto(paciente);
         }
 
-        public bool Remove(Guid id)
+        public async Task<bool> RemoveAsync(Guid id)
         {
-            var paciente = this.servicePaciente.GetById(id);
+            var paciente = await this.servicePaciente.GetByIdAsync(id);
 
             if (paciente == null)
                 return false;
 
-            this.servicePaciente.Remove(paciente);
+            await this.servicePaciente.RemoveAsync(paciente);
             return true;
          
         }
 
-        public PacienteDto Update(Guid id, PacienteDto pacienteDto)
+        public async Task<PacienteDto> UpdateAsync(Guid id, PacienteDto pacienteDto)
         {
-            var result = this.servicePaciente.GetById(id);
+            var result = await this.servicePaciente.GetByIdAsync(id);
 
             if (result != null)
             {
@@ -63,9 +64,9 @@ namespace PUCMinasSGSP.Application
 
                 var paciente = this.mapperPaciente.MapperDtoToEntity(pacienteDto);
 
-                this.servicePaciente.Update(paciente);
+                await this.servicePaciente.UpdateAsync(paciente);
 
-                return this.GetById(paciente.Id);
+                return await this.GetByIdAsync(paciente.Id);
             }
             else
             {

@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PUCMinasSGSP.Domain.Core.Interfaces.Services
 {
     public interface IServiceBase<TEntity> where TEntity : class
     {
-        TEntity Add(TEntity obj);
+        Task<TEntity> AddAsync(TEntity obj);
 
-        void Update(TEntity obj);
+        Task UpdateAsync(TEntity obj);
 
-        void Remove(TEntity obj);
+        Task RemoveAsync(TEntity obj);
 
-        IEnumerable<TEntity> GetAll();
+        Task<IEnumerable<TEntity>> GetAllAsync();
 
-        TEntity GetById(Guid id);
+        Task<TEntity> GetByIdAsync(Guid id);
 
     }
 }

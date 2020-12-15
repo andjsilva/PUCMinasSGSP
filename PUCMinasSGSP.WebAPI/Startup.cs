@@ -41,7 +41,7 @@ namespace PUCMinasSGSP.WebAPI
             services.RegisterDependencyInjectionSGSP();
             services.AddSwaggerGen( c => 
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API - Sistema de Gest?o de Sa?de P?blica (SGSP)", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API - Sistema de Gestão de Saúde Pública (SGSP)", Version = "v1" });
             });
             
 

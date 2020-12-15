@@ -5,25 +5,27 @@ using PUCMinasSGSP.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace PUCMinasSGSP.Infra.Data.Repositorys
 {
-    public class RepositoryPaciente : RepositoryBase<Paciente>, IRepositoryPaciente
+    public class RepositoryUnidadeAtendimento : RepositoryBase<UnidadeAtendimento>, IRepositoryUnidadeAtendimento
     {
         private readonly SGSPContext dbContext;
 
-        public RepositoryPaciente(SGSPContext dbContext)
-            : base(dbContext)
+        public RepositoryUnidadeAtendimento(SGSPContext dbContext)
+            :base(dbContext)
         {
             this.dbContext = dbContext;
         }
 
-        public override async Task<Paciente> GetByIdAsync(Guid id)
+
+        public override async Task<UnidadeAtendimento> GetByIdAsync(Guid id)
         {
-            var result = await this.dbContext.Paciente
+            var result = await this.dbContext.UnidadeAtendimento
                                              .AsNoTracking()
-                                             .Include(x => x.Enderecos)
+                                             .Include(x => x.Endereco)
                                              .Include(x => x.Telefones)
                                              .AsQueryable()
                                              .Where(x => x.Id == id)
@@ -31,11 +33,11 @@ namespace PUCMinasSGSP.Infra.Data.Repositorys
             return result;
         }
 
-        public override async Task<IEnumerable<Paciente>> GetAllAsync()
+        public override async Task<IEnumerable<UnidadeAtendimento>> GetAllAsync()
         {
-            var result = await this.dbContext.Paciente
+            var result = await this.dbContext.UnidadeAtendimento
                                              .AsNoTracking()
-                                             .Include(x => x.Enderecos)
+                                             .Include(x => x.Endereco)
                                              .Include(x => x.Telefones)
                                              .ToListAsync();
 

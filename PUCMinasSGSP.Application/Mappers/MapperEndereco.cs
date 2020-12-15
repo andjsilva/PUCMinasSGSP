@@ -13,7 +13,7 @@ namespace PUCMinasSGSP.Application.Mappers
             var Endereco = new Endereco()
             {
                 Id = enderecoDto.Id,
-                TipoLogradouro = enderecoDto.TipoLogradouro,
+                Tipo = enderecoDto.Tipo,
                 Logradouro = enderecoDto.Logradouro,
                 Numero = enderecoDto.Numero,
                 Complemento = enderecoDto.Complemento,
@@ -33,7 +33,7 @@ namespace PUCMinasSGSP.Application.Mappers
             var EnderecoDto = new EnderecoDto()
             {
                 Id = endereco.Id,
-                TipoLogradouro = endereco.TipoLogradouro,
+                Tipo = endereco.Tipo,
                 Logradouro = endereco.Logradouro,
                 Numero = endereco.Numero,
                 Complemento = endereco.Complemento,
@@ -53,7 +53,7 @@ namespace PUCMinasSGSP.Application.Mappers
             var dto = endereco.Select(c => new EnderecoDto
             {
                 Id = c.Id,
-                TipoLogradouro = c.TipoLogradouro,
+                Tipo = c.Tipo,
                 Logradouro = c.Logradouro,
                 Numero = c.Numero,
                 Complemento = c.Complemento,

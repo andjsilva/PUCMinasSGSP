@@ -2,20 +2,21 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PUCMinasSGSP.Application.Interfaces
 {
     public interface IApplicationServicePaciente
     {
-        PacienteDto Add(PacienteDto pacienteDto);
+        Task<PacienteDto> AddAsync(PacienteDto pacienteDto);
 
-        PacienteDto Update(Guid id, PacienteDto pacienteDto);
+        Task<PacienteDto> UpdateAsync(Guid id, PacienteDto pacienteDto);
 
-        bool Remove(Guid id);
+        Task<bool> RemoveAsync(Guid id);
 
-        IEnumerable<PacienteDto> GetAll();
+        Task<IEnumerable<PacienteDto>> GetAllAsync();
 
-        PacienteDto GetById(Guid id);
+        Task<PacienteDto> GetByIdAsync(Guid id);
 
     }
 }

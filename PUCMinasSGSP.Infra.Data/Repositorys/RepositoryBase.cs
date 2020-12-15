@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace PUCMinasSGSP.Infra.Data.Repositorys
 {
@@ -21,13 +22,13 @@ namespace PUCMinasSGSP.Infra.Data.Repositorys
 
         }
 
-        public virtual TEntity Add(TEntity obj)
+        public virtual async Task<TEntity> AddAsync(TEntity obj)
         {
             try
             {
                 this.dbContext.Set<TEntity>()
                               .Add(obj);
-                this.dbContext.SaveChanges();
+                await this.dbContext.SaveChangesAsync();
                 return obj;
             }
             catch (Exception ex)
@@ -36,34 +37,34 @@ namespace PUCMinasSGSP.Infra.Data.Repositorys
             }
         }
 
-        public virtual IEnumerable<TEntity> GetAll()
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return this.dbContext.Set<TEntity>()
-                                 .AsNoTracking<TEntity>()
-                                 .ToList();
+            var result = await this.dbContext.Set<TEntity>()
+                                       .AsNoTracking<TEntity>()
+                                       .ToListAsync();
+            return result;
         }
 
-        public virtual TEntity GetById(Guid id)
+        public virtual async Task<TEntity> GetByIdAsync(Guid id)
         {
             var idEntity = typeof(TEntity).GetProperty("Id");
-            var result = this.dbContext.Set<TEntity>()
-                                       .AsNoTracking<TEntity>()
-                                       .AsEnumerable()
-                                       .Where<TEntity>(x => (Guid)idEntity.GetValue(x) == id)
-
-                        .FirstOrDefault();
+            var result = await this.dbContext.Set<TEntity>()
+                                             .AsNoTracking()
+                                             .AsQueryable()
+                                             .Where(x => (Guid)idEntity.GetValue(x) == id)
+                                             .FirstOrDefaultAsync();
             return result;
 
         }
 
 
-        public virtual void Remove(TEntity obj)
+        public virtual async Task RemoveAsync(TEntity obj)
         {
             try
-            {
+            {   
                 this.dbContext.Set<TEntity>()
                               .Remove(obj);
-                this.dbContext.SaveChanges();
+                await this.dbContext.SaveChangesAsync();
 
             }
             catch (Exception ex)
@@ -72,13 +73,13 @@ namespace PUCMinasSGSP.Infra.Data.Repositorys
             }
         }
 
-        public virtual void Update(TEntity obj)
+        public virtual async Task UpdateAsync(TEntity obj)
         {
             try
             {
                 this.dbContext.Set<TEntity>()
                               .Update(obj);
-                this.dbContext.SaveChanges();
+                await this.dbContext.SaveChangesAsync();
             }
             catch (Exception ex)
             {

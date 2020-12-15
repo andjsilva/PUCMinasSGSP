@@ -24,26 +24,26 @@ namespace PUCMinasSGSP.WebAPI.Controllers
 
         // GET: api/<EnderecoController>
         [HttpGet]
-        public ActionResult<IEnumerable<EnderecoDto>>Get()
+        public async Task<ActionResult<IEnumerable<EnderecoDto>>> GetAll()
         {
-            return Ok(this.applicationServiceEndereco.GetAll());
+            return Ok(await this.applicationServiceEndereco.GetAllAsync());
         }
 
      
         // GET api/<EnderecoController>/
         [HttpGet("{id}")]
-        public ActionResult<EnderecoDto> Get(Guid id)
+        public async Task<ActionResult<EnderecoDto>> Get(Guid id)
         {
-            return Ok(this.applicationServiceEndereco.GetById(id));
+            return Ok(await this.applicationServiceEndereco.GetByIdAsync(id));
         }
 
         // POST api/<EnderecoController>
         [HttpPost]
-        public ActionResult<EnderecoDto> Post([FromBody] EnderecoDto EnderecoDto)
+        public async Task<ActionResult<EnderecoDto>> Post([FromBody] EnderecoDto EnderecoDto)
         {
             try
             {
-                return this.applicationServiceEndereco.Add(EnderecoDto);
+                return await this.applicationServiceEndereco.AddAsync(EnderecoDto);
             }
             catch (Exception ex)
             {
@@ -55,11 +55,11 @@ namespace PUCMinasSGSP.WebAPI.Controllers
 
         // PUT api/<EnderecoController>/id
         [HttpPut("{id}")]
-        public ActionResult<EnderecoDto> Put(Guid id, [FromBody] EnderecoDto EnderecoDto)
+        public async Task<ActionResult<EnderecoDto>> Put(Guid id, [FromBody] EnderecoDto EnderecoDto)
         {
             try
             {
-                return this.applicationServiceEndereco.Update(id, EnderecoDto);
+                return await this.applicationServiceEndereco.UpdateAsync(id, EnderecoDto);
             }
             catch (Exception ex)
             {
@@ -71,11 +71,11 @@ namespace PUCMinasSGSP.WebAPI.Controllers
 
          // DELETE api/<PacienteController>/id
         [HttpDelete("{id}")]
-        public ActionResult Delete(Guid id)
+        public async Task<ActionResult> Delete(Guid id)
         {
             try
             {
-                if (this.applicationServiceEndereco.Remove(id))
+                if ( await this.applicationServiceEndereco.RemoveAsync(id))
                     return Ok("Registro excluído com sucesso...");
 
                 return NotFound("Registro não encontrado....");

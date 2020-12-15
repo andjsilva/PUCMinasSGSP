@@ -2,19 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PUCMinasSGSP.Application.Interfaces
 {
     public interface IApplicationServiceEndereco
     {
-        EnderecoDto Add(EnderecoDto EnderecoDto);
+        Task<EnderecoDto> AddAsync(EnderecoDto EnderecoDto);
 
-        EnderecoDto Update(Guid id, EnderecoDto EnderecoDto);
+        Task<EnderecoDto> UpdateAsync(Guid id, EnderecoDto EnderecoDto);
 
-        bool Remove(Guid id);
+        Task<bool> RemoveAsync(Guid id);
 
-        IEnumerable<EnderecoDto> GetAll();
+        Task<IEnumerable<EnderecoDto>> GetAllAsync();
 
-        EnderecoDto GetById(Guid id);
+        Task<EnderecoDto> GetByIdAsync(Guid id);
     }
 }

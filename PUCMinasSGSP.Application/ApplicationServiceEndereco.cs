@@ -5,6 +5,7 @@ using PUCMinasSGSP.Domain.Core.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PUCMinasSGSP.Application
 {
@@ -20,42 +21,42 @@ namespace PUCMinasSGSP.Application
             this.mapperEndereco = mapperEndereco;
         }
 
-        public EnderecoDto Add(EnderecoDto enderecoDto)
+        public async Task<EnderecoDto> AddAsync(EnderecoDto enderecoDto)
         {
             var endereco = this.mapperEndereco.MapperDtoToEntity(enderecoDto);
-            var result = this.serviceEndereco.Add(endereco);
+            var result = await this.serviceEndereco.AddAsync(endereco);
             return this.mapperEndereco.MapperEntityToDto(result);
         }
 
-        public IEnumerable<EnderecoDto> GetAll()
+        public async Task<IEnumerable<EnderecoDto>> GetAllAsync()
         {
-            var enderecos = this.serviceEndereco.GetAll();
+            var enderecos = await this.serviceEndereco.GetAllAsync();
 
             return this.mapperEndereco.MapperListEnderecosDto(enderecos);
 
         }
 
-        public EnderecoDto GetById(Guid id)
+        public async Task<EnderecoDto> GetByIdAsync(Guid id)
         {
-            var endereco = this.serviceEndereco.GetById(id);
+            var endereco = await this.serviceEndereco.GetByIdAsync(id);
             return this.mapperEndereco.MapperEntityToDto(endereco);
         }
 
-        public bool Remove(Guid id)
+        public async Task<bool> RemoveAsync(Guid id)
         {
-            var endereco = this.serviceEndereco.GetById(id);
+            var endereco = await this.serviceEndereco.GetByIdAsync(id);
 
             if (endereco == null)
                 return false;
 
-            this.serviceEndereco.Remove(endereco);
+            await this.serviceEndereco.RemoveAsync(endereco);
             return true;
 
         }
 
-        public EnderecoDto Update(Guid id, EnderecoDto enderecoDto)
+        public async Task<EnderecoDto> UpdateAsync(Guid id, EnderecoDto enderecoDto)
         {
-            var result = this.GetById(id);
+            var result = await this.GetByIdAsync(id);
 
             if (result != null)
             {
@@ -63,9 +64,9 @@ namespace PUCMinasSGSP.Application
 
                 var endereco = this.mapperEndereco.MapperDtoToEntity(enderecoDto);
 
-                this.serviceEndereco.Update(endereco);
+                await this.serviceEndereco.UpdateAsync(endereco);
 
-                return this.GetById(endereco.Id);
+                return await this.GetByIdAsync(endereco.Id);
             }
             else
             {

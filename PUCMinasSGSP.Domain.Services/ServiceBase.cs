@@ -3,6 +3,7 @@ using PUCMinasSGSP.Domain.Core.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PUCMinasSGSP.Domain.Services
 {
@@ -15,29 +16,29 @@ namespace PUCMinasSGSP.Domain.Services
         {
             this.repository = repository;
         }
-        public TEntity Add(TEntity obj)
+        public async Task<TEntity> AddAsync(TEntity obj)
         {
-            return this.repository.Add(obj);
+           return await this.repository.AddAsync(obj);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return this.repository.GetAll();
+            return await this.repository.GetAllAsync();
         }
 
-        public TEntity GetById(Guid id)
+        public async Task<TEntity> GetByIdAsync(Guid id)
         {
-            return this.repository.GetById(id);
+            return await this.repository.GetByIdAsync(id);
         }
 
-        public void Remove(TEntity obj)
+        public async Task RemoveAsync(TEntity obj)
         {
-            this.repository.Remove(obj); 
+            await this.repository.RemoveAsync(obj); 
         }
 
-        public void Update(TEntity obj)
+        public async Task UpdateAsync(TEntity obj)
         {
-            this.repository.Update(obj);
+            await this.repository.UpdateAsync(obj);
         }
     }
 }

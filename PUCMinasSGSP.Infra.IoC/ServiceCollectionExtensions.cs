@@ -27,18 +27,23 @@ namespace PUCMinasSGSP.Infra.IoC
             //IoC Application
             services.AddTransient<IApplicationServicePaciente,ApplicationServicePaciente>();
             services.AddTransient<IApplicationServiceEndereco, ApplicationServiceEndereco>();
+            services.AddTransient<IApplicationServiceUnidadeAtendimento, ApplicationServiceUnidadeAtendimento>();
 
             //IoC Domain Services
             services.AddTransient<IServicePaciente, ServicePaciente>();
             services.AddTransient<IServiceEndereco, ServiceEndereco>();
+            services.AddTransient<IServiceUnidadeAtendimento, ServiceUnidadeAtendimento>();
 
             //IoC Repositorys
             services.AddTransient<IRepositoryPaciente, RepositoryPaciente>();
             services.AddTransient<IRepositoryEndereco, RepositoryEndereco>();
+            services.AddTransient<IRepositoryUnidadeAtendimento, RepositoryUnidadeAtendimento>();
 
             //IoC Mappper
             services.AddTransient<IMapperPaciente, MapperPaciente>();
             services.AddTransient<IMapperEndereco, MapperEndereco>();
+            services.AddTransient<IMapperUnidadeAtendimento, MapperUnidadeAtendimento>();
+
 
         }
 
