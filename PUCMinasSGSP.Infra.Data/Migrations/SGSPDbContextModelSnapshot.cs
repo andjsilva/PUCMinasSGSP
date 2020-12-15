@@ -241,6 +241,34 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                     b.ToTable("Pessoa");
                 });
 
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Produto", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<double>("Quantidade")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Tipo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UnidadeMedida")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Produto");
+                });
+
             modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Telefone", b =>
                 {
                     b.Property<Guid>("Id")

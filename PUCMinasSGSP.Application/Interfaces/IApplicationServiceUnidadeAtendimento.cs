@@ -8,9 +8,9 @@ namespace PUCMinasSGSP.Application.Interfaces
 {
     public interface IApplicationServiceUnidadeAtendimento
     {
-        Task<UnidadeAtendimentoDto> AddAsync(UnidadeAtendimentoDto pacienteDto);
+        Task<UnidadeAtendimentoDto> AddAsync(UnidadeAtendimentoDto unidadeAtendimentoDto);
 
-        Task<UnidadeAtendimentoDto> UpdateAsync(Guid id, UnidadeAtendimentoDto pacienteDto);
+        Task<UnidadeAtendimentoDto> UpdateAsync(Guid id, UnidadeAtendimentoDto unidadeAtendimentoDto);
 
         Task<bool> RemoveAsync(Guid id);
 

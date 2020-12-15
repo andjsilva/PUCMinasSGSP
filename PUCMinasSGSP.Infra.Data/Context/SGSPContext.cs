@@ -35,6 +35,8 @@ namespace PUCMinasSGSP.Infra.Data.Context
 
         public DbSet<Usuario> Usuario { get; set; }
 
+        public DbSet<Produto> Produto { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -64,6 +66,8 @@ namespace PUCMinasSGSP.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new UnidadeAtendimentoConfiguration());
 
             modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
+
+            modelBuilder.ApplyConfiguration(new ProdutoConfiguration());
 
         }
 

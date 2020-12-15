@@ -10,12 +10,32 @@ namespace PUCMinasSGSP.Application.Mappers
         public Paciente MapperDtoToEntity(PacienteDto pacienteDto)
         {
             var paciente = new Paciente();
+            var documentos = new List<Documento>();
             var enderecos = new List<Endereco>();
             var telefones = new List<Telefone>();
+            var emails = new List<Email>();
 
             paciente.Id = pacienteDto.Id;
             paciente.Nome = pacienteDto.Nome;
+            paciente.Tipo = pacienteDto.Tipo;
             paciente.Status = pacienteDto.Status;
+
+            if (pacienteDto.Documentos != null)
+            {
+                foreach (var item in pacienteDto.Documentos)
+                {
+                    var documento = new Documento()
+                    {
+                      Id = item.Id,
+                      Tipo = item.Tipo,
+                      Numero = item.Numero
+                    };
+
+                    documentos.Add(documento);
+                }
+
+                paciente.Documentos = documentos;
+            }
 
             if (pacienteDto.Enderecos != null)
             {
@@ -63,18 +83,57 @@ namespace PUCMinasSGSP.Application.Mappers
                 paciente.Telefones = telefones;
             }
 
+            if (pacienteDto.Emails != null)
+            {
+                foreach (var item in pacienteDto.Emails)
+                {
+                    var email = new Email()
+                    {
+                        Id = item.Id,
+                        Tipo = item.Tipo,
+                        Endereco = item.Endereco,
+                        Status = item.Status
+
+                    };
+
+                    emails.Add(email);
+                }
+
+                paciente.Emails = emails;
+            }
+
             return paciente;
         }
 
         public PacienteDto MapperEntityToDto(Paciente paciente)
         {
             var pacienteDto = new PacienteDto();
+            var documentosDto = new List<DocumentoDto>();
             var enderecosDto = new List<EnderecoDto>();
             var telefonesDto = new List<TelefoneDto>();
+            var emailsDto = new List<EmailDto>();
 
             pacienteDto.Id = paciente.Id;
             pacienteDto.Nome = paciente.Nome;
+            pacienteDto.Tipo = paciente.Tipo;
             pacienteDto.Status = paciente.Status;
+
+            if (paciente.Documentos != null)
+            {
+                foreach (var item in paciente.Documentos)
+                {
+                    var documentoDto = new DocumentoDto()
+                    {
+                        Id = item.Id,
+                        Tipo = item.Tipo,
+                        Numero = item.Numero
+                    };
+
+                    documentosDto.Add(documentoDto);
+                }
+
+                pacienteDto.Documentos = documentosDto;
+            }
 
             if (paciente.Enderecos != null)
             {
@@ -122,6 +181,25 @@ namespace PUCMinasSGSP.Application.Mappers
                 pacienteDto.Enderecos = enderecosDto;
             }
 
+            if (paciente.Emails != null)
+            {
+                foreach (var item in paciente.Emails)
+                {
+                    var emailDto = new EmailDto()
+                    {
+                        Id = item.Id,
+                        Tipo = item.Tipo,
+                        Endereco = item.Endereco,
+                        Status = item.Status
+
+                    };
+
+                    emailsDto.Add(emailDto);
+                }
+
+                pacienteDto.Emails = emailsDto;
+            }
+
             return pacienteDto;
         }
 
@@ -132,13 +210,32 @@ namespace PUCMinasSGSP.Application.Mappers
             foreach (var paciente in pacientes)
             {
                 var pacienteDto = new PacienteDto();
+                var documentosDto = new List<DocumentoDto>();
                 var enderecosDto = new List<EnderecoDto>();
                 var telefonesDto = new List<TelefoneDto>();
+                var emailsDto = new List<EmailDto>();
 
                 //Paciente
                 pacienteDto.Id = paciente.Id;
                 pacienteDto.Nome = paciente.Nome;
+                pacienteDto.Tipo = paciente.Tipo;
                 pacienteDto.Status = paciente.Status;
+
+                if (paciente.Documentos != null)
+                {
+                    //Documentos do Paciente
+                    foreach (var documento in paciente.Documentos)
+                    {
+                        var documentoDto = new DocumentoDto();
+
+                        documentoDto.Id = documento.Id;
+                        documentoDto.Tipo = documento.Tipo;
+                        documentoDto.Numero = documento.Numero;
+
+                        documentosDto.Add(documentoDto);
+                    }
+                    pacienteDto.Enderecos = enderecosDto;
+                }
 
                 if (paciente.Enderecos != null)
                 {
@@ -166,7 +263,7 @@ namespace PUCMinasSGSP.Application.Mappers
 
                 if (paciente.Telefones != null)
                 {
-                    //Tefones da Unidade de Atendimento
+                    //Telefones do Paciente
                     foreach (var telefone in paciente.Telefones)
                     {
                         var telefoneDto = new TelefoneDto();
@@ -183,6 +280,25 @@ namespace PUCMinasSGSP.Application.Mappers
                     }
 
                     pacienteDto.Telefones = telefonesDto;
+                }
+
+                if (paciente.Emails != null)
+                {
+                    //Emails do Paciente
+                    foreach (var telefone in paciente.Emails)
+                    {
+                        var emailDto = new EmailDto();
+
+                        emailDto.Id = telefone.Id;
+                        emailDto.Tipo = telefone.Tipo;
+                        emailDto.Endereco = telefone.Endereco;
+                        emailDto.Status = telefone.Status;
+
+
+                        emailsDto.Add(emailDto);
+                    }
+
+                    pacienteDto.Emails = emailsDto;
                 }
 
                 pacientesDto.Add(pacienteDto);

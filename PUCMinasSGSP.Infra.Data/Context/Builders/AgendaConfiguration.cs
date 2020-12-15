@@ -13,6 +13,12 @@ namespace PUCMinasSGSP.Infra.Data.Context.Builders
 
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.Entrada)
+                 .IsRequired();
+
+            builder.Property(x => x.Saida)
+                 .IsRequired();
+
             builder.HasOne(x => x.Funcionario)
                 .WithMany(x => x.Agendas)
                 .HasForeignKey(x => x.IdFuncionario);

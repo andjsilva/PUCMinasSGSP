@@ -11,11 +11,18 @@ namespace PUCMinasSGSP.Application.Dtos
 
         public string Nome { get; set; }
 
-        public Status Status { get; set; }
+        public TipoPessoaEnum Tipo { get; set; }
+
+        public StatusEnum Status { get; set; }
+
+        public virtual ICollection<DocumentoDto> Documentos { get; set; }
 
         public virtual ICollection<EnderecoDto> Enderecos { get; set; }
 
         public virtual ICollection<TelefoneDto> Telefones { get; set; }
+
+        public virtual ICollection<EmailDto> Emails { get; set; }
+
 
 
     }

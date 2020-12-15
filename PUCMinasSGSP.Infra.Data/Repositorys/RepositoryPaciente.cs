@@ -23,8 +23,10 @@ namespace PUCMinasSGSP.Infra.Data.Repositorys
         {
             var result = await this.dbContext.Paciente
                                              .AsNoTracking()
+                                             .Include(x => x.Documentos)
                                              .Include(x => x.Enderecos)
                                              .Include(x => x.Telefones)
+                                             .Include(x => x.Emails)
                                              .AsQueryable()
                                              .Where(x => x.Id == id)
                                              .FirstOrDefaultAsync();
@@ -35,8 +37,10 @@ namespace PUCMinasSGSP.Infra.Data.Repositorys
         {
             var result = await this.dbContext.Paciente
                                              .AsNoTracking()
+                                             .Include(x => x.Documentos)
                                              .Include(x => x.Enderecos)
                                              .Include(x => x.Telefones)
+                                             .Include(x => x.Emails)
                                              .ToListAsync();
 
             return result;

@@ -10,7 +10,7 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public string Senha { get; set; }
 
-        public Status Status { get; set; }
+        public StatusEnum Status { get; set; }
 
         public string Email { get; set; }
         

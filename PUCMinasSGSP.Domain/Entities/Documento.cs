@@ -7,7 +7,7 @@ namespace PUCMinasSGSP.Domain.Entities
     {
         public Guid Id { get; set; }
 
-        public TipoDocumento Tipo { get; set; }
+        public TipoDocumentoEnum Tipo { get; set; }
 
         public string Numero { get; set; }
 

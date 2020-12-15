@@ -26,23 +26,36 @@ namespace PUCMinasSGSP.Infra.IoC
             
             //IoC Application
             services.AddTransient<IApplicationServicePaciente,ApplicationServicePaciente>();
+            services.AddTransient<IApplicationServiceFuncionario, ApplicationServiceFuncionario>();
             services.AddTransient<IApplicationServiceEndereco, ApplicationServiceEndereco>();
+            services.AddTransient<IApplicationServiceTelefone, ApplicationServiceTelefone>();
             services.AddTransient<IApplicationServiceUnidadeAtendimento, ApplicationServiceUnidadeAtendimento>();
+            services.AddTransient<IApplicationServiceProduto, ApplicationServiceProduto>();
+
 
             //IoC Domain Services
             services.AddTransient<IServicePaciente, ServicePaciente>();
+            services.AddTransient<IServiceFuncionario, ServiceFuncionario>();
             services.AddTransient<IServiceEndereco, ServiceEndereco>();
+            services.AddTransient<IServiceTelefone, ServiceTelefone>();
             services.AddTransient<IServiceUnidadeAtendimento, ServiceUnidadeAtendimento>();
+            services.AddTransient<IServiceProduto, ServiceProduto>();
 
             //IoC Repositorys
             services.AddTransient<IRepositoryPaciente, RepositoryPaciente>();
+            services.AddTransient<IRepositoryFuncionario, RepositoryFuncionario>();
             services.AddTransient<IRepositoryEndereco, RepositoryEndereco>();
+            services.AddTransient<IRepositoryTelefone, RepositoryTelefone>();
             services.AddTransient<IRepositoryUnidadeAtendimento, RepositoryUnidadeAtendimento>();
+            services.AddTransient<IRepositoryProduto, RepositoryProduto>();
 
             //IoC Mappper
             services.AddTransient<IMapperPaciente, MapperPaciente>();
+            services.AddTransient<IMapperFuncionario, MapperFuncionario>();
             services.AddTransient<IMapperEndereco, MapperEndereco>();
+            services.AddTransient<IMapperTelefone, MapperTelefone>();
             services.AddTransient<IMapperUnidadeAtendimento, MapperUnidadeAtendimento>();
+            services.AddTransient<IMapperProduto, MapperProduto>();
 
 
         }

@@ -17,9 +17,6 @@
     <Compile Remove="Class1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\PUCMinasSGSP.Common\PUCMinasSGSP.Common.csproj" />
   </ItemGroup>
 </Project>

@@ -39,12 +39,12 @@ namespace PUCMinasSGSP.WebAPI.Controllers
         }
 
         // POST api/<EnderecoController>
-        [HttpPost("/paciente/{id}")]
-        public async Task<ActionResult<EnderecoDto>> Post(EntidadeEnum entidade, Guid idEntidade, [FromBody] EnderecoDto EnderecoDto)
+        [HttpPost("paciente/{id}")]
+        public async Task<ActionResult<EnderecoDto>> PostPaciente(EntidadeEnum entidade, Guid idEntidade, [FromBody] EnderecoDto enderecoDto)
         {
             try
             {
-                return await this.applicationServiceEndereco.AddAsync(idEntidade, EnderecoDto);
+                return await this.applicationServiceEndereco.AddAsync(entidade, idEntidade, enderecoDto);
             }
             catch (Exception ex)
             {
@@ -52,6 +52,38 @@ namespace PUCMinasSGSP.WebAPI.Controllers
                 throw ex;
             }
            
+        }
+
+        // POST api/<EnderecoController>
+        [HttpPost("funcionario/{id}")]
+        public async Task<ActionResult<EnderecoDto>> PostFuncionario(EntidadeEnum entidade, Guid idEntidade, [FromBody] EnderecoDto enderecoDto)
+        {
+            try
+            {
+                return await this.applicationServiceEndereco.AddAsync(entidade, idEntidade, enderecoDto);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        // POST api/<EnderecoController>
+        [HttpPost("unidade_atendimento/{id}")]
+        public async Task<ActionResult<EnderecoDto>> PostUnidadeAtendimento(EntidadeEnum entidade, Guid idEntidade, [FromBody] EnderecoDto enderecoDto)
+        {
+            try
+            {
+                return await this.applicationServiceEndereco.AddAsync(entidade, idEntidade, enderecoDto);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
 
         // PUT api/<EnderecoController>/id

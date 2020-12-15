@@ -69,7 +69,7 @@ namespace PUCMinasSGSP.WebAPI
             app.UseSwagger();
             app.UseSwaggerUI( c => 
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API - Sistema de Gest?o de Sa?de P?blica (SGSP)");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API - Sistema de Gestão de Saúde Pública (SGSP)");
             });
         }
     }

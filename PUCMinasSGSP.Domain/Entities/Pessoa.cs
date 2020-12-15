@@ -10,7 +10,7 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public string Nome { get; set; }
 
-        public TipoPessoa Tipo { get; set; }
+        public TipoPessoaEnum Tipo { get; set; }
 
         public virtual ICollection<Email> Emails { get; set; }
 

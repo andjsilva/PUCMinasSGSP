@@ -7,11 +7,11 @@ namespace PUCMinasSGSP.Domain.Entities
     {
         public Guid Id { get; set; }
 
-        public TipoEmail Tipo { get; set; }
+        public TipoEmailEnum Tipo { get; set; }
 
         public string Endereco { get; set; }
 
-        public Status Status { get; set; }
+        public StatusEnum Status { get; set; }
 
         public Guid IdPessoa { get; set; }
 

@@ -10,7 +10,7 @@ namespace PUCMinasSGSP.Application.Mappers
     {
         public Endereco MapperDtoToEntity(EnderecoDto enderecoDto)
         {
-            var Endereco = new Endereco()
+            var endereco = new Endereco()
             {
                 Id = enderecoDto.Id,
                 Tipo = enderecoDto.Tipo,
@@ -25,12 +25,12 @@ namespace PUCMinasSGSP.Application.Mappers
                 Longetude = enderecoDto.Longetude
             };
 
-            return Endereco;
+            return endereco;
         }
 
         public EnderecoDto MapperEntityToDto(Endereco endereco)
         {
-            var EnderecoDto = new EnderecoDto()
+            var enderecoDto = new EnderecoDto()
             {
                 Id = endereco.Id,
                 Tipo = endereco.Tipo,
@@ -45,12 +45,12 @@ namespace PUCMinasSGSP.Application.Mappers
                 Longetude = endereco.Longetude
             };
 
-            return EnderecoDto;
+            return enderecoDto;
         }
 
-        public IEnumerable<EnderecoDto> MapperListEnderecosDto(IEnumerable<Endereco> endereco)
+        public IEnumerable<EnderecoDto> MapperListEnderecosDto(IEnumerable<Endereco> enderecos)
         {
-            var dto = endereco.Select(c => new EnderecoDto
+            var enderecosDto = enderecos.Select(c => new EnderecoDto
             {
                 Id = c.Id,
                 Tipo = c.Tipo,
@@ -64,7 +64,7 @@ namespace PUCMinasSGSP.Application.Mappers
                 Latitude = c.Latitude,
                 Longetude = c.Longetude
             });
-            return dto;
+            return enderecosDto;
         }
     }
 }

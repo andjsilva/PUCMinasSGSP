@@ -9,7 +9,7 @@ namespace PUCMinasSGSP.Domain.Entities
     
         public DateTime Admissao { get; set; }
 
-        public Status Status { get; set; }
+        public StatusEnum Status { get; set; }
 
         public Guid IdCargo { get; set; }
 

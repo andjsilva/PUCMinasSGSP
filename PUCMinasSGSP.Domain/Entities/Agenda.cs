@@ -7,9 +7,9 @@ namespace PUCMinasSGSP.Domain.Entities
     {
         public Guid Id { get; set; }
 
-        public TipoAgenda Tipo { get; set; }
+        public TipoAgendaEnum Tipo { get; set; }
 
-        public DiaSemana DiaSemana { get; set; }
+        public DiaSemanaEnum DiaSemana { get; set; }
 
         public DateTime Entrada { get; set; }
 

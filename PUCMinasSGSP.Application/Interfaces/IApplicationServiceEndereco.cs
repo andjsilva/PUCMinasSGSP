@@ -1,4 +1,5 @@
 ﻿using PUCMinasSGSP.Application.Dtos;
+using PUCMinasSGSP.Common.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,9 +9,9 @@ namespace PUCMinasSGSP.Application.Interfaces
 {
     public interface IApplicationServiceEndereco
     {
-        Task<EnderecoDto> AddAsync(Guid idEntidade, EnderecoDto EnderecoDto);
+        Task<EnderecoDto> AddAsync(EntidadeEnum entidade, Guid idEntidade, EnderecoDto enderecoDto);
 
-        Task<EnderecoDto> UpdateAsync(Guid id, EnderecoDto EnderecoDto);
+        Task<EnderecoDto> UpdateAsync(Guid id, EnderecoDto enderecoDto);
 
         Task<bool> RemoveAsync(Guid id);
 

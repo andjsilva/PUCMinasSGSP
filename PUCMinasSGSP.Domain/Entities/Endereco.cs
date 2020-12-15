@@ -7,7 +7,7 @@ namespace PUCMinasSGSP.Domain.Entities
     {
         public Guid Id { get; set; }
 
-        public TipoLogradouro Tipo { get; set; }
+        public TipoLogradouroEnum Tipo { get; set; }
 
         public string Logradouro { get; set; }
 

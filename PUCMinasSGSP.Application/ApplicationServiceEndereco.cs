@@ -1,10 +1,10 @@
 ﻿using PUCMinasSGSP.Application.Dtos;
 using PUCMinasSGSP.Application.Interfaces;
 using PUCMinasSGSP.Application.Interfaces.Mappers;
+using PUCMinasSGSP.Common.Enums;
 using PUCMinasSGSP.Domain.Core.Interfaces.Services;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PUCMinasSGSP.Application
@@ -21,9 +21,19 @@ namespace PUCMinasSGSP.Application
             this.mapperEndereco = mapperEndereco;
         }
 
-        public async Task<EnderecoDto> AddAsync(EnderecoDto enderecoDto)
+        public async Task<EnderecoDto> AddAsync(EntidadeEnum entidade, Guid idEntidade, EnderecoDto enderecoDto)
         {
             var endereco = this.mapperEndereco.MapperDtoToEntity(enderecoDto);
+
+            if (EntidadeEnum.Funcionario == entidade || EntidadeEnum.Paciente == entidade)
+            {
+                endereco.IdPessoa = idEntidade;
+            }
+            else
+            {
+                endereco.IdUnidadeAtendimento = idEntidade;
+            }
+
             var result = await this.serviceEndereco.AddAsync(endereco);
             return this.mapperEndereco.MapperEntityToDto(result);
         }
@@ -33,7 +43,6 @@ namespace PUCMinasSGSP.Application
             var enderecos = await this.serviceEndereco.GetAllAsync();
 
             return this.mapperEndereco.MapperListEnderecosDto(enderecos);
-
         }
 
         public async Task<EnderecoDto> GetByIdAsync(Guid id)
@@ -51,7 +60,6 @@ namespace PUCMinasSGSP.Application
 
             await this.serviceEndereco.RemoveAsync(endereco);
             return true;
-
         }
 
         public async Task<EnderecoDto> UpdateAsync(Guid id, EnderecoDto enderecoDto)
@@ -71,8 +79,7 @@ namespace PUCMinasSGSP.Application
             else
             {
                 return new EnderecoDto();
-            }         
-
+            }
         }
     }
 }
