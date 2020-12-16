@@ -21,15 +21,7 @@ namespace PUCMinasSGSP.Application.Mappers
             funcionario.Tipo = funcionarioDto.Tipo;
             funcionario.Admissao = funcionarioDto.Admissao;
             funcionario.Status = funcionarioDto.Status;
-
-            var cargo = new Cargo()
-            {
-                Id = funcionarioDto.Cargo.Id,
-                Descricao = funcionarioDto.Cargo.Descricao
-            };
-
-
-            funcionario.Cargo = cargo;
+            funcionario.IdCargo = funcionarioDto.IdCargo;
 
             if (funcionarioDto.Documentos != null)
             {
@@ -129,15 +121,7 @@ namespace PUCMinasSGSP.Application.Mappers
             funcionarioDto.Tipo = funcionario.Tipo;
             funcionarioDto.Admissao = funcionario.Admissao;
             funcionarioDto.Status = funcionario.Status;
-
-            var cargoDto = new CargoDto()
-            {
-                Id = funcionario.Cargo.Id,
-                Descricao = funcionario.Cargo.Descricao
-            };
-
-
-            funcionarioDto.Cargo = cargoDto;
+            funcionario.IdCargo = funcionarioDto.IdCargo;
 
             if (funcionario.Documentos != null)
             {
@@ -242,14 +226,7 @@ namespace PUCMinasSGSP.Application.Mappers
                 funcionarioDto.Tipo = funcionario.Tipo;
                 funcionarioDto.Admissao = funcionario.Admissao;
                 funcionarioDto.Status = funcionario.Status;
-
-                var cargoDto = new CargoDto()
-                {
-                    Id = funcionario.Cargo.Id,
-                    Descricao = funcionario.Cargo.Descricao
-                };
-
-                funcionarioDto.Cargo = cargoDto;
+                funcionarioDto.IdCargo = funcionario.IdCargo;
 
                 if (funcionario.Documentos != null)
                 {

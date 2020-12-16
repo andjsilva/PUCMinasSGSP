@@ -16,5 +16,7 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public virtual ICollection<Telefone> Telefones { get; set;}
 
+        public virtual ICollection<Estoque> Estoque { get; set; }
+
     }
 }

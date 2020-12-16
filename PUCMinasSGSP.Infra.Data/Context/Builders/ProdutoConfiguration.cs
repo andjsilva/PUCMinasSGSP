@@ -13,12 +13,18 @@ namespace PUCMinasSGSP.Infra.Data.Context.Builders
 
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.Tipo)
+                   .IsRequired();
+
+            builder.Property(x => x.IdFabricante)
+                   .HasMaxLength(30);
+
             builder.Property(x => x.Descricao)
                 .HasMaxLength(150)
                 .IsRequired();
 
-            builder.Property(x => x.Quantidade)
-                 .IsRequired();
+            builder.Property(x => x.Fabricante)
+                   .HasMaxLength(100);
 
         }
     }

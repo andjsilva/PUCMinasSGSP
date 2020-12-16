@@ -17,7 +17,7 @@ namespace PUCMinasSGSP.Application.Dtos
 
         public StatusEnum Status { get; set; }
 
-        public virtual CargoDto Cargo { get; set; }
+        public Guid IdCargo { get; set; }
 
         public virtual ICollection<DocumentoDto> Documentos { get; set; }
 

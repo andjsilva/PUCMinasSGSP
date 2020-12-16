@@ -9,14 +9,18 @@ namespace PUCMinasSGSP.Domain.Entities
     {
         public Guid Id { get; set; }
 
+        public string IdFabricante { get; set; }
+
         public TipoProdutoEnum Tipo { get; set; }
 
         public string Descricao { get; set; }
 
+        public string Fabricante { get; set; }
+
         public UnidadeMedidaEnum UnidadeMedida { get; set; }
 
-        public double Quantidade { get; set; }
-
         public StatusEnum Status { get; set; }
+
+        public virtual ICollection<Estoque> Estoque { get; set;}
     }
 }

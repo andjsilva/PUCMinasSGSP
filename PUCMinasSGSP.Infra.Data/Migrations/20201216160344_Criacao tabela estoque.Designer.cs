@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PUCMinasSGSP.Infra.Data.Context;
 
 namespace PUCMinasSGSP.Infra.Data.Migrations
 {
     [DbContext(typeof(SGSPContext))]
-    partial class SGSPDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201216160344_Criacao tabela estoque")]
+    partial class Criacaotabelaestoque
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

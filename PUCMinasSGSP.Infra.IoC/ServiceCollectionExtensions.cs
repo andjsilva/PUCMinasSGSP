@@ -31,6 +31,8 @@ namespace PUCMinasSGSP.Infra.IoC
             services.AddTransient<IApplicationServiceTelefone, ApplicationServiceTelefone>();
             services.AddTransient<IApplicationServiceUnidadeAtendimento, ApplicationServiceUnidadeAtendimento>();
             services.AddTransient<IApplicationServiceProduto, ApplicationServiceProduto>();
+            services.AddTransient<IApplicationServiceEstoque, ApplicationServiceEstoque>();
+            services.AddTransient<IApplicationServiceCargo, ApplicationServiceCargo>();
 
 
             //IoC Domain Services
@@ -40,6 +42,8 @@ namespace PUCMinasSGSP.Infra.IoC
             services.AddTransient<IServiceTelefone, ServiceTelefone>();
             services.AddTransient<IServiceUnidadeAtendimento, ServiceUnidadeAtendimento>();
             services.AddTransient<IServiceProduto, ServiceProduto>();
+            services.AddTransient<IServiceEstoque, ServiceEstoque>();
+            services.AddTransient<IServiceCargo, ServiceCargo>();
 
             //IoC Repositorys
             services.AddTransient<IRepositoryPaciente, RepositoryPaciente>();
@@ -48,6 +52,8 @@ namespace PUCMinasSGSP.Infra.IoC
             services.AddTransient<IRepositoryTelefone, RepositoryTelefone>();
             services.AddTransient<IRepositoryUnidadeAtendimento, RepositoryUnidadeAtendimento>();
             services.AddTransient<IRepositoryProduto, RepositoryProduto>();
+            services.AddTransient<IRepositoryEstoque, RepositoryEstoque>();
+            services.AddTransient<IRepositoryCargo, RepositoryCargo>();
 
             //IoC Mappper
             services.AddTransient<IMapperPaciente, MapperPaciente>();
@@ -56,6 +62,8 @@ namespace PUCMinasSGSP.Infra.IoC
             services.AddTransient<IMapperTelefone, MapperTelefone>();
             services.AddTransient<IMapperUnidadeAtendimento, MapperUnidadeAtendimento>();
             services.AddTransient<IMapperProduto, MapperProduto>();
+            services.AddTransient<IMapperEstoque, MapperEstoque>();
+            services.AddTransient<IMapperCargo, MapperCargo>();
 
 
         }

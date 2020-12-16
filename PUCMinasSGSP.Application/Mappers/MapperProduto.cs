@@ -14,9 +14,10 @@ namespace PUCMinasSGSP.Application.Mappers
             {
                 Id = produtoDto.Id,
                 Tipo = produtoDto.Tipo,
+                IdFabricante = produtoDto.IdFabricante,
                 Descricao = produtoDto.Descricao,
+                Fabricante = produtoDto.Fabricante,
                 UnidadeMedida = produtoDto.UnidadeMedida,
-                Quantidade = produtoDto.Quantidade,
                 Status = produtoDto.Status
                 
             };
@@ -30,9 +31,10 @@ namespace PUCMinasSGSP.Application.Mappers
             {
                 Id = produto.Id,
                 Tipo = produto.Tipo,
+                IdFabricante = produto.IdFabricante,
                 Descricao = produto.Descricao,
+                Fabricante = produto.Fabricante,
                 UnidadeMedida = produto.UnidadeMedida,
-                Quantidade = produto.Quantidade,
                 Status = produto.Status
             };
 
@@ -41,14 +43,15 @@ namespace PUCMinasSGSP.Application.Mappers
 
         public IEnumerable<ProdutoDto> MapperListProdutosDto(IEnumerable<Produto> produtos)
         {
-            var produtosDto = produtos.Select(c => new ProdutoDto
+            var produtosDto = produtos.Select(item => new ProdutoDto
             {
-                Id = c.Id,
-                Tipo = c.Tipo,
-                Descricao = c.Descricao,
-                UnidadeMedida = c.UnidadeMedida,
-                Quantidade = c.Quantidade,
-                Status = c.Status
+                Id = item.Id,
+                Tipo = item.Tipo,
+                IdFabricante = item.IdFabricante,
+                Descricao = item.Descricao,
+                Fabricante = item.Fabricante,
+                UnidadeMedida = item.UnidadeMedida,
+                Status = item.Status
             });
             return produtosDto;
         }

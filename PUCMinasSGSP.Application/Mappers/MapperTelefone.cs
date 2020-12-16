@@ -42,15 +42,15 @@ namespace PUCMinasSGSP.Application.Mappers
 
         public IEnumerable<TelefoneDto> MapperListTelefonesDto(IEnumerable<Telefone> telefones)
         {
-            var telefoneDto = telefones.Select(c => new TelefoneDto
+            var telefoneDto = telefones.Select(item => new TelefoneDto
             {
-                Id = c.Id,
-                Tipo = c.Tipo,
-                DDI = c.DDI,
-                DDD = c.DDD,
-                Numero = c.Numero,
-                Recado = c.Recado,
-                Complemento = c.Complemento
+                Id = item.Id,
+                Tipo = item.Tipo,
+                DDI = item.DDI,
+                DDD = item.DDD,
+                Numero = item.Numero,
+                Recado = item.Recado,
+                Complemento = item.Complemento
             });
             return telefoneDto;
         }

@@ -37,6 +37,8 @@ namespace PUCMinasSGSP.Infra.Data.Context
 
         public DbSet<Produto> Produto { get; set; }
 
+        public DbSet<Estoque> Estoque { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -68,6 +70,8 @@ namespace PUCMinasSGSP.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
 
             modelBuilder.ApplyConfiguration(new ProdutoConfiguration());
+
+            modelBuilder.ApplyConfiguration(new EstoqueConfiguration());
 
         }
 

@@ -50,19 +50,19 @@ namespace PUCMinasSGSP.Application.Mappers
 
         public IEnumerable<EnderecoDto> MapperListEnderecosDto(IEnumerable<Endereco> enderecos)
         {
-            var enderecosDto = enderecos.Select(c => new EnderecoDto
+            var enderecosDto = enderecos.Select(item => new EnderecoDto
             {
-                Id = c.Id,
-                Tipo = c.Tipo,
-                Logradouro = c.Logradouro,
-                Numero = c.Numero,
-                Complemento = c.Complemento,
-                Cep = c.Cep,
-                Bairro = c.Bairro,
-                Municipio = c.Municipio,
-                Estado = c.Estado,
-                Latitude = c.Latitude,
-                Longetude = c.Longetude
+                Id = item.Id,
+                Tipo = item.Tipo,
+                Logradouro = item.Logradouro,
+                Numero = item.Numero,
+                Complemento = item.Complemento,
+                Cep = item.Cep,
+                Bairro = item.Bairro,
+                Municipio = item.Municipio,
+                Estado = item.Estado,
+                Latitude = item.Latitude,
+                Longetude = item.Longetude
             });
             return enderecosDto;
         }

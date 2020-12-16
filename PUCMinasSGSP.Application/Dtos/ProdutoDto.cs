@@ -9,11 +9,13 @@ namespace PUCMinasSGSP.Application.Dtos
     {
         public Guid Id { get; set; }
 
+        public string IdFabricante { get; set; }
+
         public TipoProdutoEnum Tipo { get; set; }
 
         public string Descricao { get; set; }
 
-        public double Quantidade { get; set; }
+        public string Fabricante { get; set; }
 
         public UnidadeMedidaEnum UnidadeMedida { get; set; }
 
