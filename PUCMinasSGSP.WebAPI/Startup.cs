@@ -37,6 +37,11 @@ namespace PUCMinasSGSP.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder.WithOrigins("http://localhost:4200"));
+            });
             services.AddDbContext<SGSPContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:SGSPSQLServer"]));
             services.RegisterDependencyInjectionSGSP();
             services.AddSwaggerGen( c => 
@@ -59,6 +64,8 @@ namespace PUCMinasSGSP.WebAPI
 
             app.UseRouting();
 
+            app.UseCors("AllowSpecificOrigin");
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -71,6 +78,8 @@ namespace PUCMinasSGSP.WebAPI
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "API - Sistema de Gestão de Saúde Pública (SGSP)");
             });
+
+            
         }
     }
 }
