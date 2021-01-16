@@ -11,5 +11,7 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public virtual ICollection<Agenda> Agendas { get; set; }
 
+        public virtual Prontuario Prontuario { get; set; }
+
     }
 }

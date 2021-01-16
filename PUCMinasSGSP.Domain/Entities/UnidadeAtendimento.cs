@@ -18,5 +18,9 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public virtual ICollection<Estoque> Estoque { get; set; }
 
+        public virtual ICollection<Campanha> Campanhas{ get; set; }
+
+        public virtual ICollection<Leito> Leitos { get; set; }
+
     }
 }

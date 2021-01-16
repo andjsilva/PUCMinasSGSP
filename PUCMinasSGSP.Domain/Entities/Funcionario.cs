@@ -19,5 +19,6 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public virtual ICollection<Agenda> Agendas { get; set; }
 
-     }
+
+    }
 }

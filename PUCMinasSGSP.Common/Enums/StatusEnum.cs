@@ -2,8 +2,8 @@
 namespace PUCMinasSGSP.Common.Enums
 {
     public enum StatusEnum
-    {
-        Ativo,
-        Inativo
+    {        
+        Inativo = 0,
+        Ativo = 1
     }
 }
