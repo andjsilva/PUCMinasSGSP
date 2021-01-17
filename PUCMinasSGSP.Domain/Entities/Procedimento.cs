@@ -1,7 +1,6 @@
 ﻿using PUCMinasSGSP.Common.Enums;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Domain.Entities
 {
@@ -12,5 +11,7 @@ namespace PUCMinasSGSP.Domain.Entities
         public string Descricao { get; set; }
 
         public TipoProcedimentoEnum Tipo { get; set; }
+
+        public virtual ICollection<DetalhesProntuario> DetalhesProntuario { get; set; }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using PUCMinasSGSP.Application.Dtos;
 using PUCMinasSGSP.Domain.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Application.Interfaces.Mappers
 {
@@ -13,6 +11,5 @@ namespace PUCMinasSGSP.Application.Interfaces.Mappers
         IEnumerable<EnderecoDto> MapperListEnderecosDto(IEnumerable<Endereco> enderecos);
 
         EnderecoDto MapperEntityToDto(Endereco endereco);
-
     }
 }

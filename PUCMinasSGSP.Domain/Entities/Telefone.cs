@@ -1,5 +1,5 @@
-﻿using System;
-using PUCMinasSGSP.Common.Enums;
+﻿using PUCMinasSGSP.Common.Enums;
+using System;
 
 namespace PUCMinasSGSP.Domain.Entities
 {

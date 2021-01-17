@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Domain.Entities
 {
@@ -12,7 +10,7 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public virtual Prontuario Prontuario { get; set; }
 
-        public Guid IdInternacao { get; set; }
+        public Guid? IdInternacao { get; set; }
 
         public virtual Internacao Internacao { get; set; }
 
@@ -28,7 +26,7 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public virtual Procedimento Procedimento { get; set; }
 
-        public Guid IdDiagnostico { get; set; }
+        public Guid? IdDiagnostico { get; set; }
 
         public Diagnostico Diagnostico { get; set; }
 

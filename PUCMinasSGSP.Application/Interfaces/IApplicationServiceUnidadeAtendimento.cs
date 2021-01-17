@@ -1,7 +1,6 @@
 ﻿using PUCMinasSGSP.Application.Dtos;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PUCMinasSGSP.Application.Interfaces
@@ -17,6 +16,5 @@ namespace PUCMinasSGSP.Application.Interfaces
         Task<IEnumerable<UnidadeAtendimentoDto>> GetAllAsync();
 
         Task<UnidadeAtendimentoDto> GetByIdAsync(Guid id);
-
     }
 }

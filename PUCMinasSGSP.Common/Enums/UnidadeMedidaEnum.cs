@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PUCMinasSGSP.Common.Enums
+﻿namespace PUCMinasSGSP.Common.Enums
 {
     public enum UnidadeMedidaEnum
     {

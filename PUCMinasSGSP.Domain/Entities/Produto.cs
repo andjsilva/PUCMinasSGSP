@@ -1,7 +1,6 @@
 ﻿using PUCMinasSGSP.Common.Enums;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Domain.Entities
 {
@@ -21,6 +20,6 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public StatusEnum Status { get; set; }
 
-        public virtual ICollection<Estoque> Estoque { get; set;}
+        public virtual ICollection<Estoque> Estoque { get; set; }
     }
 }

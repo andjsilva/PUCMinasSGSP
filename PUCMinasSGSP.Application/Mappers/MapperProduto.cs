@@ -19,7 +19,6 @@ namespace PUCMinasSGSP.Application.Mappers
                 Fabricante = produtoDto.Fabricante,
                 UnidadeMedida = produtoDto.UnidadeMedida,
                 Status = produtoDto.Status
-                
             };
 
             return produto;

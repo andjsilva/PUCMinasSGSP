@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PUCMinasSGSP.Application.Dtos;
 using PUCMinasSGSP.Application.Interfaces;
 using PUCMinasSGSP.Common.Enums;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,7 +20,6 @@ namespace PUCMinasSGSP.WebAPI.Controllers
         {
             this.applicationServiceEndereco = applicationServiceEndereco;
         }
-        
 
         // GET: api/<EnderecoController>
         [HttpGet]
@@ -30,7 +28,6 @@ namespace PUCMinasSGSP.WebAPI.Controllers
             return Ok(await this.applicationServiceEndereco.GetAllAsync());
         }
 
-     
         // GET api/<EnderecoController>/
         [HttpGet("{id}")]
         public async Task<ActionResult<EnderecoDto>> Get(Guid id)
@@ -48,10 +45,8 @@ namespace PUCMinasSGSP.WebAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-           
         }
 
         // POST api/<EnderecoController>
@@ -64,10 +59,8 @@ namespace PUCMinasSGSP.WebAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-
         }
 
         // POST api/<EnderecoController>
@@ -80,10 +73,8 @@ namespace PUCMinasSGSP.WebAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-
         }
 
         // PUT api/<EnderecoController>/id
@@ -96,29 +87,25 @@ namespace PUCMinasSGSP.WebAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-           
         }
 
-         // DELETE api/<PacienteController>/id
+        // DELETE api/<PacienteController>/id
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(Guid id)
         {
             try
             {
-                if ( await this.applicationServiceEndereco.RemoveAsync(id))
+                if (await this.applicationServiceEndereco.RemoveAsync(id))
                     return Ok("Registro excluído com sucesso...");
 
                 return NotFound("Registro não encontrado....");
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-           
         }
     }
 }

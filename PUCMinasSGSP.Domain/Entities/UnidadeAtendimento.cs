@@ -1,6 +1,6 @@
-﻿using System;
+﻿using PUCMinasSGSP.Common.Enums;
+using System;
 using System.Collections.Generic;
-using PUCMinasSGSP.Common.Enums;
 
 namespace PUCMinasSGSP.Domain.Entities
 {
@@ -14,13 +14,14 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public virtual Endereco Endereco { get; set; }
 
-        public virtual ICollection<Telefone> Telefones { get; set;}
+        public virtual ICollection<Telefone> Telefones { get; set; }
 
         public virtual ICollection<Estoque> Estoque { get; set; }
 
-        public virtual ICollection<Campanha> Campanhas{ get; set; }
+        public virtual ICollection<Campanha> Campanhas { get; set; }
 
         public virtual ICollection<Leito> Leitos { get; set; }
 
+        public virtual ICollection<Diagnostico> Diagnosticos { get; set; }
     }
 }

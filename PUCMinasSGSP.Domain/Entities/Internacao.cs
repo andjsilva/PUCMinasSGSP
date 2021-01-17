@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Domain.Entities
 {
@@ -24,7 +23,10 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public Guid IdMedico { get; set; }
 
-        public Medico Medico { get; set; }
+        public Funcionario Medico { get; set; }
 
+        public virtual ICollection<DetalhesProntuario> DetalhesProntuario { get; set; }
+
+       
     }
 }

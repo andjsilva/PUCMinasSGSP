@@ -12,11 +12,10 @@ namespace PUCMinasSGSP.Application.Mappers
         {
             var estoque = new Estoque()
             {
-              Id = estoqueDto.Id,
-              IdProduto = estoqueDto.IdProduto,
-              IdUnidadeAtendimento = estoqueDto.IdUnidadeAtendimento,
-              Quantidade = estoqueDto.Quantidade
-                
+                Id = estoqueDto.Id,
+                IdProduto = estoqueDto.IdProduto,
+                IdUnidadeAtendimento = estoqueDto.IdUnidadeAtendimento,
+                Quantidade = estoqueDto.Quantidade
             };
 
             return estoque;

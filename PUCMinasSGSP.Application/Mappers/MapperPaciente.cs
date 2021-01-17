@@ -26,9 +26,9 @@ namespace PUCMinasSGSP.Application.Mappers
                 {
                     var documento = new Documento()
                     {
-                      Id = item.Id,
-                      Tipo = item.Tipo,
-                      Numero = item.Numero
+                        Id = item.Id,
+                        Tipo = item.Tipo,
+                        Numero = item.Numero
                     };
 
                     documentos.Add(documento);
@@ -93,7 +93,6 @@ namespace PUCMinasSGSP.Application.Mappers
                         Tipo = item.Tipo,
                         Endereco = item.Endereco,
                         Status = item.Status
-
                     };
 
                     emails.Add(email);
@@ -191,7 +190,6 @@ namespace PUCMinasSGSP.Application.Mappers
                         Tipo = item.Tipo,
                         Endereco = item.Endereco,
                         Status = item.Status
-
                     };
 
                     emailsDto.Add(emailDto);
@@ -293,7 +291,6 @@ namespace PUCMinasSGSP.Application.Mappers
                         emailDto.Tipo = telefone.Tipo;
                         emailDto.Endereco = telefone.Endereco;
                         emailDto.Status = telefone.Status;
-
 
                         emailsDto.Add(emailDto);
                     }

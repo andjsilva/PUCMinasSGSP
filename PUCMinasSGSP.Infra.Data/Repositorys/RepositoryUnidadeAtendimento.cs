@@ -5,7 +5,6 @@ using PUCMinasSGSP.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PUCMinasSGSP.Infra.Data.Repositorys
@@ -15,11 +14,10 @@ namespace PUCMinasSGSP.Infra.Data.Repositorys
         private readonly SGSPContext dbContext;
 
         public RepositoryUnidadeAtendimento(SGSPContext dbContext)
-            :base(dbContext)
+            : base(dbContext)
         {
             this.dbContext = dbContext;
         }
-
 
         public override async Task<UnidadeAtendimento> GetByIdAsync(Guid id)
         {

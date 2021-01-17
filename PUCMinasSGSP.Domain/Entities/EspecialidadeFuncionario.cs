@@ -1,7 +1,8 @@
 ﻿using System;
+
 namespace PUCMinasSGSP.Domain.Entities
 {
-    public class EspecialidadeFuncionario  
+    public class EspecialidadeFuncionario
     {
         public Guid Id { get; set; }
 
@@ -12,6 +13,5 @@ namespace PUCMinasSGSP.Domain.Entities
         public Guid IdFuncionario { get; set; }
 
         public virtual Funcionario Funcionario { get; set; }
-
     }
 }

@@ -4,7 +4,6 @@ using PUCMinasSGSP.Application.Interfaces.Mappers;
 using PUCMinasSGSP.Domain.Core.Interfaces.Services;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PUCMinasSGSP.Application
@@ -33,7 +32,6 @@ namespace PUCMinasSGSP.Application
             var pacientes = await this.servicePaciente.GetAllAsync();
 
             return this.mapperPaciente.MapperListPacientesDto(pacientes);
-
         }
 
         public async Task<PacienteDto> GetByIdAsync(Guid id)
@@ -51,7 +49,6 @@ namespace PUCMinasSGSP.Application
 
             await this.servicePaciente.RemoveAsync(paciente);
             return true;
-         
         }
 
         public async Task<PacienteDto> UpdateAsync(Guid id, PacienteDto pacienteDto)
@@ -71,8 +68,7 @@ namespace PUCMinasSGSP.Application
             else
             {
                 return new PacienteDto();
-            }         
-
+            }
         }
     }
 }

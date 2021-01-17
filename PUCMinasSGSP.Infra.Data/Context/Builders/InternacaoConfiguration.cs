@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PUCMinasSGSP.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Infra.Data.Context.Builders
 {

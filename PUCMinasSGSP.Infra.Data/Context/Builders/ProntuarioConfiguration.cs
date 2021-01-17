@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PUCMinasSGSP.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Infra.Data.Context.Builders
 {
@@ -11,7 +8,6 @@ namespace PUCMinasSGSP.Infra.Data.Context.Builders
     {
         public void Configure(EntityTypeBuilder<Prontuario> builder)
         {
-
             builder.ToTable("Prontuario");
 
             builder.HasKey(x => x.Id);
@@ -21,10 +17,6 @@ namespace PUCMinasSGSP.Infra.Data.Context.Builders
 
             builder.Property(x => x.TipoSanguinio)
                    .HasMaxLength(5);
-
-            builder.HasOne(x => x.Paciente)
-              .WithOne(x => x.Prontuario)
-              .HasForeignKey<Prontuario>(x => x.IdPaciente);
         }
     }
 }

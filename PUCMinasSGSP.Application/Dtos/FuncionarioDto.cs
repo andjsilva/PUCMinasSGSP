@@ -1,7 +1,6 @@
 ﻿using PUCMinasSGSP.Common.Enums;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Application.Dtos
 {
@@ -26,8 +25,5 @@ namespace PUCMinasSGSP.Application.Dtos
         public virtual ICollection<TelefoneDto> Telefones { get; set; }
 
         public virtual ICollection<EmailDto> Emails { get; set; }
-
-
-
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PUCMinasSGSP.Domain.Entities;
 using PUCMinasSGSP.Infra.Data.Context.Builders;
 
@@ -7,7 +6,9 @@ namespace PUCMinasSGSP.Infra.Data.Context
 {
     public class SGSPContext : DbContext
     {
-        public SGSPContext(DbContextOptions<SGSPContext> options) : base(options) { }
+        public SGSPContext(DbContextOptions<SGSPContext> options) : base(options)
+        {
+        }
 
         public DbSet<Agenda> Agenda { get; set; }
 
@@ -39,6 +40,20 @@ namespace PUCMinasSGSP.Infra.Data.Context
 
         public DbSet<Estoque> Estoque { get; set; }
 
+        public DbSet<Campanha> Campanha { get; set; }
+
+        public DbSet<Leito> Leito { get; set; }
+
+        public DbSet<Prontuario> Prontuario { get; set; }
+
+        public DbSet<Internacao> Internacao { get; set; }
+
+        public DbSet<DetalhesProntuario> DetalhesProntuario { get; set; }
+
+        public DbSet<Diagnostico> Diagnostico { get; set; }
+
+        public DbSet<Procedimento> Procedimento { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -62,7 +77,7 @@ namespace PUCMinasSGSP.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new PacienteConfiguration());
 
             modelBuilder.ApplyConfiguration(new PessoaConfiguration());
-            
+
             modelBuilder.ApplyConfiguration(new TelefoneConfiguration());
 
             modelBuilder.ApplyConfiguration(new UnidadeAtendimentoConfiguration());
@@ -73,7 +88,18 @@ namespace PUCMinasSGSP.Infra.Data.Context
 
             modelBuilder.ApplyConfiguration(new EstoqueConfiguration());
 
-        }
+            modelBuilder.ApplyConfiguration(new CampanhaConfiguration());
 
+            modelBuilder.ApplyConfiguration(new LeitoConfiguration());
+
+            modelBuilder.ApplyConfiguration(new ProcedimentoConfiguration());
+
+            modelBuilder.ApplyConfiguration(new InternacaoConfiguration());
+
+            modelBuilder.ApplyConfiguration(new DetalhesProntuarioConfiguration());
+
+            modelBuilder.ApplyConfiguration(new DiagnosticoConfiguration());
+
+        }
     }
 }

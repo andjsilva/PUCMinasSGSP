@@ -1,12 +1,11 @@
-﻿using System;
+﻿using PUCMinasSGSP.Common.Enums;
+using System;
 using System.Collections.Generic;
-using PUCMinasSGSP.Common.Enums;
 
 namespace PUCMinasSGSP.Domain.Entities
 {
     public class Funcionario : Pessoa
     {
-    
         public DateTime Admissao { get; set; }
 
         public StatusEnum Status { get; set; }
@@ -17,8 +16,8 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public virtual ICollection<EspecialidadeFuncionario> Especialidades { get; set; }
 
+        public virtual ICollection<Internacao> Internacoes { get; set; }
+
         public virtual ICollection<Agenda> Agendas { get; set; }
-
-
     }
 }

@@ -1,5 +1,5 @@
-﻿using System;
-using PUCMinasSGSP.Common.Enums;
+﻿using PUCMinasSGSP.Common.Enums;
+using System;
 
 namespace PUCMinasSGSP.Domain.Entities
 {
@@ -11,9 +11,8 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public string Numero { get; set; }
 
-        public Guid IdPessoa { get; set;}
+        public Guid IdPessoa { get; set; }
 
         public Pessoa Pessoa { get; set; }
-            
     }
 }

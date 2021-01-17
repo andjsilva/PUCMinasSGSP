@@ -6,7 +6,6 @@ using PUCMinasSGSP.Application.Mappers;
 using PUCMinasSGSP.Domain.Core.Interfaces.Repositorys;
 using PUCMinasSGSP.Domain.Core.Interfaces.Services;
 using PUCMinasSGSP.Domain.Services;
-using PUCMinasSGSP.Infra.Data.Context;
 using PUCMinasSGSP.Infra.Data.Repositorys;
 using System;
 
@@ -23,9 +22,8 @@ namespace PUCMinasSGSP.Infra.IoC
 
         private static void RegisterDependencyInjection(IServiceCollection services)
         {
-            
             //IoC Application
-            services.AddTransient<IApplicationServicePaciente,ApplicationServicePaciente>();
+            services.AddTransient<IApplicationServicePaciente, ApplicationServicePaciente>();
             services.AddTransient<IApplicationServiceFuncionario, ApplicationServiceFuncionario>();
             services.AddTransient<IApplicationServiceEndereco, ApplicationServiceEndereco>();
             services.AddTransient<IApplicationServiceTelefone, ApplicationServiceTelefone>();
@@ -33,7 +31,6 @@ namespace PUCMinasSGSP.Infra.IoC
             services.AddTransient<IApplicationServiceProduto, ApplicationServiceProduto>();
             services.AddTransient<IApplicationServiceEstoque, ApplicationServiceEstoque>();
             services.AddTransient<IApplicationServiceCargo, ApplicationServiceCargo>();
-
 
             //IoC Domain Services
             services.AddTransient<IServicePaciente, ServicePaciente>();
@@ -64,10 +61,6 @@ namespace PUCMinasSGSP.Infra.IoC
             services.AddTransient<IMapperProduto, MapperProduto>();
             services.AddTransient<IMapperEstoque, MapperEstoque>();
             services.AddTransient<IMapperCargo, MapperCargo>();
-
-
         }
-
-
     }
 }

@@ -10,8 +10,8 @@ using PUCMinasSGSP.Infra.Data.Context;
 namespace PUCMinasSGSP.Infra.Data.Migrations
 {
     [DbContext(typeof(SGSPContext))]
-    [Migration("20201215225542_Tabela Produtos")]
-    partial class TabelaProdutos
+    [Migration("20210117004937_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -57,6 +57,33 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                     b.ToTable("Agenda");
                 });
 
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Campanha", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("Fim")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("IdUnidadeAtendimento")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Inicio")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdUnidadeAtendimento");
+
+                    b.ToTable("Campanha");
+                });
+
             modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Cargo", b =>
                 {
                     b.Property<Guid>("Id")
@@ -71,6 +98,92 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cargo");
+                });
+
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.DetalhesProntuario", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Execucao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("FuncionarioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("IdDiagnostico")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("IdInternacao")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdMedico")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdProcedimento")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdProntuario")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Observacoes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Solicitacao")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FuncionarioId");
+
+                    b.HasIndex("IdDiagnostico");
+
+                    b.HasIndex("IdInternacao");
+
+                    b.HasIndex("IdProcedimento");
+
+                    b.HasIndex("IdProntuario");
+
+                    b.ToTable("DetalhesProntuario");
+                });
+
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Diagnostico", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Entrada")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("IdMedico")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdProntuario")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdUnidadeAtendimento")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("MedicoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Saida")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Tipo")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdProntuario");
+
+                    b.HasIndex("IdUnidadeAtendimento");
+
+                    b.HasIndex("MedicoId");
+
+                    b.ToTable("Diagnostico");
                 });
 
             modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Documento", b =>
@@ -224,6 +337,100 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                     b.ToTable("EspecialidadeFuncionario");
                 });
 
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Estoque", b =>
+                {
+                    b.Property<Guid>("IdProduto")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdUnidadeAtendimento")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("Quantidade")
+                        .HasColumnType("float");
+
+                    b.HasKey("IdProduto", "IdUnidadeAtendimento");
+
+                    b.HasIndex("IdUnidadeAtendimento");
+
+                    b.ToTable("Estoque");
+                });
+
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Internacao", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Alta")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("Entrada")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("IdLeito")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdMedico")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdProntuario")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Saida")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdLeito");
+
+                    b.HasIndex("IdMedico");
+
+                    b.HasIndex("IdProntuario");
+
+                    b.ToTable("Internacao");
+                });
+
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Leito", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("Disponivel")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("IdUnidadeAtendimento")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Localizacao")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Observacoes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Tipo")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdUnidadeAtendimento");
+
+                    b.ToTable("Leito");
+                });
+
             modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Pessoa", b =>
                 {
                     b.Property<Guid>("Id")
@@ -243,6 +450,25 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                     b.ToTable("Pessoa");
                 });
 
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Procedimento", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("Tipo")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Procedimento");
+                });
+
             modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Produto", b =>
                 {
                     b.Property<Guid>("Id")
@@ -254,8 +480,13 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<double>("Quantidade")
-                        .HasColumnType("float");
+                    b.Property<string>("Fabricante")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("IdFabricante")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -263,9 +494,44 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                     b.Property<int>("Tipo")
                         .HasColumnType("int");
 
+                    b.Property<int>("UnidadeMedida")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Produto");
+                });
+
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Prontuario", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AlergiasMedicacao")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Altura")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Doencas")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Observacoes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Peso")
+                        .HasColumnType("float");
+
+                    b.Property<string>("RhSanguinio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TipoSanguinio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Prontuario");
                 });
 
             modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Telefone", b =>
@@ -356,8 +622,15 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                 {
                     b.HasBaseType("PUCMinasSGSP.Domain.Entities.Pessoa");
 
+                    b.Property<Guid>("IdProntuario")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
+
+                    b.HasIndex("IdProntuario")
+                        .IsUnique()
+                        .HasFilter("[IdProntuario] IS NOT NULL");
 
                     b.ToTable("Paciente");
                 });
@@ -400,6 +673,79 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                     b.Navigation("Funcionario");
 
                     b.Navigation("Paciente");
+                });
+
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Campanha", b =>
+                {
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.UnidadeAtendimento", "UnidadeAtendimento")
+                        .WithMany("Campanhas")
+                        .HasForeignKey("IdUnidadeAtendimento")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UnidadeAtendimento");
+                });
+
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.DetalhesProntuario", b =>
+                {
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.Funcionario", "Funcionario")
+                        .WithMany()
+                        .HasForeignKey("FuncionarioId");
+
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.Diagnostico", "Diagnostico")
+                        .WithMany("DetalhesProntuario")
+                        .HasForeignKey("IdDiagnostico");
+
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.Internacao", "Internacao")
+                        .WithMany("DetalhesProntuario")
+                        .HasForeignKey("IdInternacao");
+
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.Procedimento", "Procedimento")
+                        .WithMany("DetalhesProntuario")
+                        .HasForeignKey("IdProcedimento")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.Prontuario", "Prontuario")
+                        .WithMany("DetalhesProntuario")
+                        .HasForeignKey("IdProntuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Diagnostico");
+
+                    b.Navigation("Funcionario");
+
+                    b.Navigation("Internacao");
+
+                    b.Navigation("Procedimento");
+
+                    b.Navigation("Prontuario");
+                });
+
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Diagnostico", b =>
+                {
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.Prontuario", "Prontuario")
+                        .WithMany("Diagnosticos")
+                        .HasForeignKey("IdProntuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.UnidadeAtendimento", "UnidadeAtendimento")
+                        .WithMany("Diagnosticos")
+                        .HasForeignKey("IdUnidadeAtendimento")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.Funcionario", "Medico")
+                        .WithMany()
+                        .HasForeignKey("MedicoId");
+
+                    b.Navigation("Medico");
+
+                    b.Navigation("Prontuario");
+
+                    b.Navigation("UnidadeAtendimento");
                 });
 
             modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Documento", b =>
@@ -460,6 +806,63 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                     b.Navigation("Funcionario");
                 });
 
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Estoque", b =>
+                {
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.Produto", "Produto")
+                        .WithMany("Estoque")
+                        .HasForeignKey("IdProduto")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.UnidadeAtendimento", "UnidadeAtendimento")
+                        .WithMany("Estoque")
+                        .HasForeignKey("IdUnidadeAtendimento")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Produto");
+
+                    b.Navigation("UnidadeAtendimento");
+                });
+
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Internacao", b =>
+                {
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.Leito", "Leito")
+                        .WithMany("Internacoes")
+                        .HasForeignKey("IdLeito")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.Funcionario", "Medico")
+                        .WithMany("Internacoes")
+                        .HasForeignKey("IdMedico")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.Prontuario", "Prontuario")
+                        .WithMany("Internacoes")
+                        .HasForeignKey("IdProntuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Leito");
+
+                    b.Navigation("Medico");
+
+                    b.Navigation("Prontuario");
+                });
+
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Leito", b =>
+                {
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.UnidadeAtendimento", "UnidadeAtendimento")
+                        .WithMany("Leitos")
+                        .HasForeignKey("IdUnidadeAtendimento")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UnidadeAtendimento");
+                });
+
             modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Telefone", b =>
                 {
                     b.HasOne("PUCMinasSGSP.Domain.Entities.Pessoa", "Pessoa")
@@ -500,6 +903,14 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                         .HasForeignKey("PUCMinasSGSP.Domain.Entities.Paciente", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
+
+                    b.HasOne("PUCMinasSGSP.Domain.Entities.Prontuario", "Prontuario")
+                        .WithOne("Paciente")
+                        .HasForeignKey("PUCMinasSGSP.Domain.Entities.Paciente", "IdProntuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Prontuario");
                 });
 
             modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Usuario", b =>
@@ -516,9 +927,24 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                     b.Navigation("Funcionarios");
                 });
 
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Diagnostico", b =>
+                {
+                    b.Navigation("DetalhesProntuario");
+                });
+
             modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Especialidade", b =>
                 {
                     b.Navigation("Funcionarios");
+                });
+
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Internacao", b =>
+                {
+                    b.Navigation("DetalhesProntuario");
+                });
+
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Leito", b =>
+                {
+                    b.Navigation("Internacoes");
                 });
 
             modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Pessoa", b =>
@@ -532,9 +958,38 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                     b.Navigation("Telefones");
                 });
 
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Procedimento", b =>
+                {
+                    b.Navigation("DetalhesProntuario");
+                });
+
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Produto", b =>
+                {
+                    b.Navigation("Estoque");
+                });
+
+            modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Prontuario", b =>
+                {
+                    b.Navigation("DetalhesProntuario");
+
+                    b.Navigation("Diagnosticos");
+
+                    b.Navigation("Internacoes");
+
+                    b.Navigation("Paciente");
+                });
+
             modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.UnidadeAtendimento", b =>
                 {
+                    b.Navigation("Campanhas");
+
+                    b.Navigation("Diagnosticos");
+
                     b.Navigation("Endereco");
+
+                    b.Navigation("Estoque");
+
+                    b.Navigation("Leitos");
 
                     b.Navigation("Telefones");
                 });
@@ -544,6 +999,8 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                     b.Navigation("Agendas");
 
                     b.Navigation("Especialidades");
+
+                    b.Navigation("Internacoes");
                 });
 
             modelBuilder.Entity("PUCMinasSGSP.Domain.Entities.Paciente", b =>

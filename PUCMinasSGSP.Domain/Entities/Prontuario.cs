@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Domain.Entities
 {
     public class Prontuario
     {
         public Guid Id { get; set; }
-
-        public Guid IdPaciente { get; set; }
 
         public virtual Paciente Paciente { get; set; }
 
@@ -28,5 +25,8 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public virtual ICollection<Internacao> Internacoes { get; set; }
 
+        public virtual ICollection<DetalhesProntuario> DetalhesProntuario { get; set; }
+
+        public virtual ICollection<Diagnostico> Diagnosticos { get; set; }
     }
 }

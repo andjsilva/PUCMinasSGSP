@@ -1,5 +1,4 @@
-﻿using System;
-namespace PUCMinasSGSP.Common.Enums
+﻿namespace PUCMinasSGSP.Common.Enums
 {
     public enum TipoAgendaEnum
     {

@@ -1,7 +1,6 @@
 ﻿using PUCMinasSGSP.Common.Enums;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Domain.Entities
 {
@@ -27,5 +26,6 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public virtual UnidadeAtendimento UnidadeAtendimento { get; set; }
 
+        public virtual ICollection<DetalhesProntuario> DetalhesProntuario { get; set; }
     }
 }

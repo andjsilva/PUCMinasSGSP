@@ -1,7 +1,5 @@
 ﻿using PUCMinasSGSP.Common.Enums;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Application.Dtos
 {

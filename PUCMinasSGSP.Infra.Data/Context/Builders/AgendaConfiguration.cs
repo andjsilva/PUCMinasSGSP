@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PUCMinasSGSP.Domain.Entities;
 
@@ -26,8 +25,6 @@ namespace PUCMinasSGSP.Infra.Data.Context.Builders
             builder.HasOne(x => x.Paciente)
                 .WithMany(x => x.Agendas)
                 .HasForeignKey(x => x.IdPaciente);
-
-
         }
     }
 }

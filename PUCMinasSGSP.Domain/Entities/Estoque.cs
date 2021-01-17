@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Domain.Entities
 {
@@ -14,7 +12,7 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public Guid IdUnidadeAtendimento { get; set; }
 
-        public virtual UnidadeAtendimento UnidadeAtendimento { get; set;}
+        public virtual UnidadeAtendimento UnidadeAtendimento { get; set; }
 
         public double Quantidade { get; set; }
     }

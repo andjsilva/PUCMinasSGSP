@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PUCMinasSGSP.Domain.Entities;
 
@@ -19,9 +18,6 @@ namespace PUCMinasSGSP.Infra.Data.Context.Builders
             builder.Property(x => x.Nome)
                 .HasMaxLength(255)
                 .IsRequired();
-
-            
-
         }
     }
 }

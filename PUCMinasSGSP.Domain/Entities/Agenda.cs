@@ -1,5 +1,5 @@
-﻿using System;
-using PUCMinasSGSP.Common.Enums;
+﻿using PUCMinasSGSP.Common.Enums;
+using System;
 
 namespace PUCMinasSGSP.Domain.Entities
 {
@@ -24,6 +24,5 @@ namespace PUCMinasSGSP.Domain.Entities
         public Guid? IdFuncionario { get; set; }
 
         public Funcionario Funcionario { get; set; }
-
     }
 }

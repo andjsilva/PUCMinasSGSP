@@ -1,6 +1,6 @@
-﻿using System;
+﻿using PUCMinasSGSP.Common.Enums;
+using System;
 using System.Collections.Generic;
-using PUCMinasSGSP.Common.Enums;
 
 namespace PUCMinasSGSP.Domain.Entities
 {

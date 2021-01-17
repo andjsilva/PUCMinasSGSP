@@ -1,13 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PUCMinasSGSP.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Infra.Data.Context.Builders
 {
-    class TelefoneConfiguration : IEntityTypeConfiguration<Telefone>
+    internal class TelefoneConfiguration : IEntityTypeConfiguration<Telefone>
     {
         public void Configure(EntityTypeBuilder<Telefone> builder)
         {
@@ -36,9 +33,6 @@ namespace PUCMinasSGSP.Infra.Data.Context.Builders
                 .WithMany(x => x.Telefones)
                 .HasForeignKey(x => x.IdPessoa)
                 .OnDelete(DeleteBehavior.Cascade);
-
-
-
         }
     }
 }

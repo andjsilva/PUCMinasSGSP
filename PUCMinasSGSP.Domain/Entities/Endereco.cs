@@ -1,5 +1,5 @@
-﻿using System;
-using PUCMinasSGSP.Common.Enums;
+﻿using PUCMinasSGSP.Common.Enums;
+using System;
 
 namespace PUCMinasSGSP.Domain.Entities
 {
@@ -16,9 +16,9 @@ namespace PUCMinasSGSP.Domain.Entities
         public string Complemento { get; set; }
 
         public string Cep { get; set; }
-        
+
         public string Bairro { get; set; }
-        
+
         public string Municipio { get; set; }
 
         public string Estado { get; set; }
@@ -34,7 +34,5 @@ namespace PUCMinasSGSP.Domain.Entities
         public Guid? IdUnidadeAtendimento { get; set; }
 
         public virtual UnidadeAtendimento UnidadeAtendimento { get; set; }
-
-  
     }
 }

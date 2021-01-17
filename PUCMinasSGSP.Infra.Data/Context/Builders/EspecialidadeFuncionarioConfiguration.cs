@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PUCMinasSGSP.Domain.Entities;
 
@@ -22,8 +21,6 @@ namespace PUCMinasSGSP.Infra.Data.Context.Builders
                 .WithMany(x => x.Funcionarios)
                 .HasForeignKey(x => x.IdEspecialidade)
                 .OnDelete(DeleteBehavior.Cascade);
-
-
         }
     }
 }

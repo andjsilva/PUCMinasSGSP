@@ -4,7 +4,6 @@ using PUCMinasSGSP.Application.Interfaces.Mappers;
 using PUCMinasSGSP.Domain.Core.Interfaces.Services;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PUCMinasSGSP.Application
@@ -33,7 +32,6 @@ namespace PUCMinasSGSP.Application
             var unidadesAtendimento = await this.serviceUnidadeAtendimento.GetAllAsync();
 
             return this.mapperUnidadeAtendimento.MapperListUnidadesAtendimentoDto(unidadesAtendimento);
-
         }
 
         public async Task<UnidadeAtendimentoDto> GetByIdAsync(Guid id)
@@ -51,7 +49,6 @@ namespace PUCMinasSGSP.Application
 
             await this.serviceUnidadeAtendimento.RemoveAsync(unidadeAtendimento);
             return true;
-         
         }
 
         public async Task<UnidadeAtendimentoDto> UpdateAsync(Guid id, UnidadeAtendimentoDto unidadeAtendimentoDto)
@@ -71,8 +68,7 @@ namespace PUCMinasSGSP.Application
             else
             {
                 return new UnidadeAtendimentoDto();
-            }         
-
+            }
         }
     }
 }

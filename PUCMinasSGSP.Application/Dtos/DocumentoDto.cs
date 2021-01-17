@@ -1,7 +1,5 @@
 ﻿using PUCMinasSGSP.Common.Enums;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Application.Dtos
 {
@@ -14,6 +12,5 @@ namespace PUCMinasSGSP.Application.Dtos
         public string Numero { get; set; }
 
         public Guid IdPessoa { get; set; }
-
     }
 }

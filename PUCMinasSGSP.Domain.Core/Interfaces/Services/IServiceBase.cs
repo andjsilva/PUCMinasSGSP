@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PUCMinasSGSP.Domain.Core.Interfaces.Services
@@ -16,6 +15,5 @@ namespace PUCMinasSGSP.Domain.Core.Interfaces.Services
         Task<IEnumerable<TEntity>> GetAllAsync();
 
         Task<TEntity> GetByIdAsync(Guid id);
-
     }
 }

@@ -1,13 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PUCMinasSGSP.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PUCMinasSGSP.Infra.Data.Context.Builders
 {
-    class DocumentoConfiguration : IEntityTypeConfiguration<Documento>
+    internal class DocumentoConfiguration : IEntityTypeConfiguration<Documento>
     {
         public void Configure(EntityTypeBuilder<Documento> builder)
         {
@@ -26,8 +23,6 @@ namespace PUCMinasSGSP.Infra.Data.Context.Builders
                 .WithMany(x => x.Documentos)
                 .HasForeignKey(x => x.IdPessoa)
                 .OnDelete(DeleteBehavior.Cascade);
-
-
         }
     }
 }

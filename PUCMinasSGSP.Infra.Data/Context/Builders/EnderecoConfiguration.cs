@@ -47,12 +47,10 @@ namespace PUCMinasSGSP.Infra.Data.Context.Builders
                 .HasForeignKey(x => x.IdPessoa)
                 .OnDelete(DeleteBehavior.Cascade);
 
-
             builder.HasOne(x => x.UnidadeAtendimento)
                 .WithOne(x => x.Endereco)
                 .HasForeignKey<Endereco>(x => x.IdUnidadeAtendimento)
                 .OnDelete(DeleteBehavior.Cascade);
-
         }
     }
 }

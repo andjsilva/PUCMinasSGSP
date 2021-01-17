@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PUCMinasSGSP.Application.Dtos;
 using PUCMinasSGSP.Application.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,7 +19,6 @@ namespace PUCMinasSGSP.WebAPI.Controllers
         {
             this.applicationServiceFuncionario = applicationServiceFuncionario;
         }
-        
 
         // GET: api/<FuncionarioController>
         [HttpGet]
@@ -29,7 +27,6 @@ namespace PUCMinasSGSP.WebAPI.Controllers
             return Ok(await this.applicationServiceFuncionario.GetAllAsync());
         }
 
-     
         // GET api/<FuncionarioController>/
         [HttpGet("{id}")]
         public async Task<ActionResult<PacienteDto>> Get(Guid id)
@@ -47,10 +44,8 @@ namespace PUCMinasSGSP.WebAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-           
         }
 
         // PUT api/<FuncionarioController>/id
@@ -63,10 +58,8 @@ namespace PUCMinasSGSP.WebAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-           
         }
 
         // DELETE api/<FuncionarioController>/id
@@ -84,7 +77,6 @@ namespace PUCMinasSGSP.WebAPI.Controllers
             {
                 throw ex;
             }
-           
         }
     }
 }
