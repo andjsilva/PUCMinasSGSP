@@ -19,6 +19,7 @@ namespace PUCMinasSGSP.Application.Mappers
             paciente.Nome = pacienteDto.Nome;
             paciente.Tipo = pacienteDto.Tipo;
             paciente.Status = pacienteDto.Status;
+            paciente.IdProntuario = pacienteDto.IdProntuario;
 
             if (pacienteDto.Documentos != null)
             {
@@ -116,6 +117,7 @@ namespace PUCMinasSGSP.Application.Mappers
             pacienteDto.Nome = paciente.Nome;
             pacienteDto.Tipo = paciente.Tipo;
             pacienteDto.Status = paciente.Status;
+            pacienteDto.IdProntuario = paciente.IdProntuario;
 
             if (paciente.Documentos != null)
             {
@@ -218,6 +220,7 @@ namespace PUCMinasSGSP.Application.Mappers
                 pacienteDto.Nome = paciente.Nome;
                 pacienteDto.Tipo = paciente.Tipo;
                 pacienteDto.Status = paciente.Status;
+                pacienteDto.IdProntuario = paciente.IdProntuario;
 
                 if (paciente.Documentos != null)
                 {

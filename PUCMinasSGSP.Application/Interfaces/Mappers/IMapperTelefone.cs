@@ -10,6 +10,6 @@ namespace PUCMinasSGSP.Application.Interfaces.Mappers
 
         IEnumerable<TelefoneDto> MapperListTelefonesDto(IEnumerable<Telefone> telefones);
 
-        TelefoneDto MapperEntityToDto(Telefone endereco);
+        TelefoneDto MapperEntityToDto(Telefone telefone);
     }
 }

@@ -6,10 +6,10 @@ namespace PUCMinasSGSP.Application.Interfaces.Mappers
 {
     public interface IMapperUnidadeAtendimento
     {
-        UnidadeAtendimento MapperDtoToEntity(UnidadeAtendimentoDto pacienteDto);
+        UnidadeAtendimento MapperDtoToEntity(UnidadeAtendimentoDto unidadeAtendimentoDto);
 
-        IEnumerable<UnidadeAtendimentoDto> MapperListUnidadesAtendimentoDto(IEnumerable<UnidadeAtendimento> pacientes);
+        IEnumerable<UnidadeAtendimentoDto> MapperListUnidadesAtendimentoDto(IEnumerable<UnidadeAtendimento> unidadesAtendimento);
 
-        UnidadeAtendimentoDto MapperEntityToDto(UnidadeAtendimento paciente);
+        UnidadeAtendimentoDto MapperEntityToDto(UnidadeAtendimento unidadeAtendimento);
     }
 }

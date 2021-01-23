@@ -8,7 +8,7 @@ namespace PUCMinasSGSP.Application.Interfaces.Mappers
     {
         Cargo MapperDtoToEntity(CargoDto cargoDto);
 
-        IEnumerable<CargoDto> MapperListCargosDto(IEnumerable<Cargo> estoques);
+        IEnumerable<CargoDto> MapperListCargosDto(IEnumerable<Cargo> cargos);
 
         CargoDto MapperEntityToDto(Cargo cargo);
     }
