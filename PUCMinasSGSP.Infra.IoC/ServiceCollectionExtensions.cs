@@ -31,6 +31,11 @@ namespace PUCMinasSGSP.Infra.IoC
             services.AddTransient<IApplicationServiceProduto, ApplicationServiceProduto>();
             services.AddTransient<IApplicationServiceEstoque, ApplicationServiceEstoque>();
             services.AddTransient<IApplicationServiceCargo, ApplicationServiceCargo>();
+            services.AddTransient<IApplicationServiceCampanha, ApplicationServiceCampanha>();
+            services.AddTransient<IApplicationServiceProntuario, ApplicationServiceProntuario>();
+            services.AddTransient<IApplicationServiceDetalhesProntuario, ApplicationServiceDetalhesProntuario>();
+            services.AddTransient<IApplicationServiceDiagnostico, ApplicationServiceDiagnostico>();
+            services.AddTransient<IApplicationServiceLeito, ApplicationServiceLeito>();
 
             //IoC Domain Services
             services.AddTransient<IServicePaciente, ServicePaciente>();
@@ -41,6 +46,11 @@ namespace PUCMinasSGSP.Infra.IoC
             services.AddTransient<IServiceProduto, ServiceProduto>();
             services.AddTransient<IServiceEstoque, ServiceEstoque>();
             services.AddTransient<IServiceCargo, ServiceCargo>();
+            services.AddTransient<IServiceCampanha, ServiceCampanha>();
+            services.AddTransient<IServiceProntuario, ServiceProntuario>();
+            services.AddTransient<IServiceDetalhesProntuario, ServiceDetalhesProntuario>();
+            services.AddTransient<IServiceDiagnostico, ServiceDiagnostico>();
+            services.AddTransient<IServiceLeito, ServiceLeito>();
 
             //IoC Repositorys
             services.AddTransient<IRepositoryPaciente, RepositoryPaciente>();
@@ -51,6 +61,11 @@ namespace PUCMinasSGSP.Infra.IoC
             services.AddTransient<IRepositoryProduto, RepositoryProduto>();
             services.AddTransient<IRepositoryEstoque, RepositoryEstoque>();
             services.AddTransient<IRepositoryCargo, RepositoryCargo>();
+            services.AddTransient<IRepositoryCampanha, RepositoryCampanha>();
+            services.AddTransient<IRepositoryProntuario, RepositoryProntuario>();
+            services.AddTransient<IRepositoryDetalhesProntuario, RepositoryDetalhesProntuario>();
+            services.AddTransient<IRepositoryDiagnostico, RepositoryDiagnostico>();
+            services.AddTransient<IRepositoryLeito, RepositoryLeito>();
 
             //IoC Mappper
             services.AddTransient<IMapperPaciente, MapperPaciente>();
@@ -61,6 +76,11 @@ namespace PUCMinasSGSP.Infra.IoC
             services.AddTransient<IMapperProduto, MapperProduto>();
             services.AddTransient<IMapperEstoque, MapperEstoque>();
             services.AddTransient<IMapperCargo, MapperCargo>();
+            services.AddTransient<IMapperCampanha, MapperCampanha>();
+            services.AddTransient<IMapperProntuario, MapperProntuario>();
+            services.AddTransient<IMapperDetalhesProntuario, MapperDetalhesProntuario>();
+            services.AddTransient<IMapperDiagnostico, MapperDiagnostico>();
+            services.AddTransient<IMapperLeito, MapperLeito>();
         }
     }
 }

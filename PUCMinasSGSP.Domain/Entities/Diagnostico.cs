@@ -20,7 +20,7 @@ namespace PUCMinasSGSP.Domain.Entities
 
         public Guid IdMedico { get; set; }
 
-        public Funcionario Medico { get; set; }
+        public virtual Funcionario Medico { get; set; }
 
         public Guid IdUnidadeAtendimento { get; set; }
 

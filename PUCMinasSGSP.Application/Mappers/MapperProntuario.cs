@@ -8,22 +8,7 @@ namespace PUCMinasSGSP.Application.Mappers
 {
     public class MapperProntuario : IMapperProntuario
     {
-        /*public Guid Id { get; set; }
-
-        public double Peso { get; set; }
-
-        public double Altura { get; set; }
-
-        public string TipoSanguinio { get; set; }
-
-        public string RhSanguinio { get; set; }
-
-        public string AlergiasMedicacao { get; set; }
-
-        public string Doencas { get; set; }
-
-        public string Observacoes { get; set; }*/
-
+        
         public Prontuario MapperDtoToEntity(ProntuarioDto prontuarioDto)
         {
             var prontuario = new Prontuario()

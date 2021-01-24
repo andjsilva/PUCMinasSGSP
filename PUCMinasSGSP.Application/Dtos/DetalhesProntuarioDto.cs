@@ -3,7 +3,7 @@ using PUCMinasSGSP.Common.Enums;
 
 namespace PUCMinasSGSP.Application.Dtos
 {
-    public class ProntuarioDto
+    public class DetalhesProntuarioDto
     {
         public Guid Id { get; set; }
 
