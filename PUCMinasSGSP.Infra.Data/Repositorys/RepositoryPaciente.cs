@@ -29,7 +29,7 @@ namespace PUCMinasSGSP.Infra.Data.Repositorys
                                              .Include(x => x.Emails)
                                              .AsQueryable()
                                              .Where(x => x.Id == id)
-                                             .FirstOrDefaultAsync();
+                                             .FirstOrDefaultAsync(); 
             return result;
         }
 

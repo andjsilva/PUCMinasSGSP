@@ -199,7 +199,7 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
-                    IdProntuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    IdProntuario = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -215,7 +215,7 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                         column: x => x.IdProntuario,
                         principalTable: "Prontuario",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(

@@ -16,6 +16,8 @@ namespace PUCMinasSGSP.Application.Dtos
 
         public Guid IdProntuario { get; set; }
 
+        public ProntuarioDto Prontuario { get; set; }
+
         public virtual ICollection<DocumentoDto> Documentos { get; set; }
 
         public virtual ICollection<EnderecoDto> Enderecos { get; set; }

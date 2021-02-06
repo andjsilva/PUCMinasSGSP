@@ -10,6 +10,7 @@ namespace PUCMinasSGSP.Application.Mappers
         public Paciente MapperDtoToEntity(PacienteDto pacienteDto)
         {
             var paciente = new Paciente();
+            var prontuario = new Prontuario();
             var documentos = new List<Documento>();
             var enderecos = new List<Endereco>();
             var telefones = new List<Telefone>();
@@ -19,7 +20,14 @@ namespace PUCMinasSGSP.Application.Mappers
             paciente.Nome = pacienteDto.Nome;
             paciente.Tipo = pacienteDto.Tipo;
             paciente.Status = pacienteDto.Status;
-            paciente.IdProntuario = pacienteDto.IdProntuario;
+
+            prontuario.Id = pacienteDto.Prontuario.Id;
+            prontuario.Peso = pacienteDto.Prontuario.Peso;
+            prontuario.Altura = pacienteDto.Prontuario.Altura;
+            prontuario.AlergiasMedicacao = pacienteDto.Prontuario.AlergiasMedicacao;
+            prontuario.Doencas = pacienteDto.Prontuario.Doencas;
+
+            paciente.Prontuario = prontuario;
 
             if (pacienteDto.Documentos != null)
             {

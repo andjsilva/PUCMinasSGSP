@@ -10,7 +10,7 @@ using PUCMinasSGSP.Infra.Data.Context;
 namespace PUCMinasSGSP.Infra.Data.Migrations
 {
     [DbContext(typeof(SGSPContext))]
-    [Migration("20210117004937_Inicial")]
+    [Migration("20210206163441_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -622,7 +622,7 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
                 {
                     b.HasBaseType("PUCMinasSGSP.Domain.Entities.Pessoa");
 
-                    b.Property<Guid>("IdProntuario")
+                    b.Property<Guid?>("IdProntuario")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Status")
@@ -906,9 +906,7 @@ namespace PUCMinasSGSP.Infra.Data.Migrations
 
                     b.HasOne("PUCMinasSGSP.Domain.Entities.Prontuario", "Prontuario")
                         .WithOne("Paciente")
-                        .HasForeignKey("PUCMinasSGSP.Domain.Entities.Paciente", "IdProntuario")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PUCMinasSGSP.Domain.Entities.Paciente", "IdProntuario");
 
                     b.Navigation("Prontuario");
                 });

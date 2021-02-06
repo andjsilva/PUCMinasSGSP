@@ -12,7 +12,7 @@ namespace PUCMinasSGSP.Infra.Data.Context.Builders
 
             builder.HasOne(x => x.Prontuario)
             .WithOne(x => x.Paciente)
-            .HasForeignKey<Paciente>(x => x.IdProntuario);
+            .HasForeignKey<Paciente>(x => x.IdProntuario);  
         }
     }
 }
